@@ -9,9 +9,14 @@ function App() {
 
   return (
     <>
-      <Header/>
+    <div>
+    <Header/>
+    </div>
       <Outlet/>
+      <div>
       <Footer/>
+      </div>
+      
     </>
   )
 }

@@ -1,15 +1,17 @@
 import {
   createBrowserRouter,
- 
- 
 } from "react-router-dom";
 import App from "./App";
-import Main from "./components/Main";
-import Restaurant from "./components/Restaurant/Restaurant";
-import Hotel from "./components/Hotels/Hotel";
-import Appartement from "./components/Appartement/Appartement";
-import Coiffeur from "./components/Coiffeur/Coiffeur";
-import VTC from "./components/VTC/VTC";
+
+import Restaurant from "./Pages/Restaurant/Restaurant";
+import Hotel from "./Pages/Hotels/Hotel";
+import Appartement from "./Pages/Appartement/Appartement";
+import Coiffeur from "./Pages/Coiffeur/Coiffeur";
+import VTC from "./Pages/VTC/VTC";
+import Activity from "./Pages/Activity/Activity";
+import Evenement from "./Pages/Evenement/Evenement";
+import Home from "./Pages/Home";
+import Clubs from "./Pages/Clubs/Clubs";
 export const router = createBrowserRouter([
     {
         path: "/",
@@ -17,19 +19,11 @@ export const router = createBrowserRouter([
         children:[
             {
                         index: true,
-                element: <Main />
+                element: <Home />
              },
              {
                 path: "/Resturants",
                 element:<Restaurant />
-             },
-             {
-                path: "/Hotels",
-                element:<Hotel />
-             },
-             {
-                path: "/Appartements",
-                element:<Appartement />
              },
              {
                 path: "/Coiffeurs",
@@ -40,10 +34,26 @@ export const router = createBrowserRouter([
                 element:<VTC />
              },
              {
-               path: "/Activités"
+               path: "/Activités",
+               element:<Activity />
+             },
+             {
+               path:"/Evenements",
+               element:<Evenement />
+             },
+             {
+               path:"/Clubs",
+               element:<Clubs/>
+             },
+             {
+               path:""
              }
 
 
         ]
+    },
+    {
+      path:"*",
+      element:<h1>not found</h1>
     }
 ])

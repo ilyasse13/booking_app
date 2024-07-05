@@ -4,15 +4,13 @@ import vespa3 from "./Fais ta loc- Vespa3 .jpg"
 import vitaloca_vespa3 from './vita_loca3.jpg'
 import vitaloca_vespa2 from './vita_loca2.jpg'
 import vitaloca_vespa1 from './vita_loca1.jpg'
-import vitaloca_vespa4 from './vita_loca4.jpg'
 import ov_optic1 from './ov_optic1.jpg'
 import ov_optic2 from './ov_optic2.jpg'
 import au_bon_oeil5 from './au_bon_oeil5.jpg'
-import au_bon_oeil1 from 'au_bon_oeil1.jpg'
-import au_bon_oeil2 from 'au_bon_oeil2.jpg'
-import au_bon_oeil3 from 'au_bon_oeil3.jpg'
-import au_bon_oeil4 from 'au_bon_oeil4.jpg'
-import au_bon_oeil5 from 'au_bon_oeil5.jpg'
+import au_bon_oeil1 from './au_bon_oeil1.jpg'
+import au_bon_oeil2 from './au_bon_oeil2.jpg'
+import au_bon_oeil3 from './au_bon_oeil3.jpg'
+import au_bon_oeil4 from './au_bon_oeil4.jpg'
 import Restau241 from './241.jpg'
 import Restau242 from './242.jpg'
 import Restau243 from './243.jpg'
@@ -242,7 +240,7 @@ const locations = [
         adresse:"📍8 Rue de la Loge, 13002 Marseille",
         téléphone: " 07.68.62.36.83",
         prix:" 55€ EUR",
-        images:[vitaloca_vespa3,vitaloca_vespa2,vitaloca_vespa1,vitaloca_vespa4],
+        images:[vitaloca_vespa3,vitaloca_vespa2,vitaloca_vespa1,],
         avis: [
             {
                 utilisateur: "Chloe_Bordeaux",
@@ -695,4 +693,4 @@ const cafées_et_biscuitrie = [
 
 ]
 
-export {nights_club,sneakers,activités,restaurants,locations,coiffeurs,cafées_et_biscuitrie,opticiens}
+export {nights_club,sneakers,activités,restaurants,locations,coiffeurs,cafées_et_biscuitrie,opticiens};

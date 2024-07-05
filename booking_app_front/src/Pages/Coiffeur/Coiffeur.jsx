@@ -1,5 +1,5 @@
 import React from 'react'
-import Data from '../../assets/data'
+
 
 
 const Coiffeur = () => {
