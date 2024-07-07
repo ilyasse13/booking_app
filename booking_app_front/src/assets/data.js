@@ -691,6 +691,51 @@ const cafées_et_biscuitrie = [
 
     }
 
+];
+
+const TopDestinations=[
+    {
+        name:"Restaurants",
+        img:splendido4,
+        URI:"Restaurants"
+    },
+    {
+        name:"Night Clubs",
+        img:sportbeach3,
+        URI:"Clubs"
+    },
+    {
+        name:"Locations",
+        img:vitaloca_vespa3,
+        URI:"Locations"
+    },
+    {
+        name:"Activités",
+        img:cinema2,
+        URI:"Activités"
+    },
+    {
+        name:"Opticiens",
+        img:au_bon_oeil1,
+        URI:"Opticiens"
+    },
+    {
+        name:"Cafés et Biscuitries",
+        img:donut3,
+        URI:"Coffees"
+    },
+    {
+        name:"Coiffeurs",
+        img:barber3,
+        URI:"/Coiffeurs"
+    },
+    {
+        name:"Sneakers",
+        img:OS3,
+        URI:"Sneakers"
+    }
+
+
 ]
 
-export {nights_club,sneakers,activités,restaurants,locations,coiffeurs,cafées_et_biscuitrie,opticiens};
+export {nights_club,sneakers,activités,restaurants,locations,coiffeurs,cafées_et_biscuitrie,opticiens,TopDestinations};

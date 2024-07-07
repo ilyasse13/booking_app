@@ -4,14 +4,15 @@ import {
 import App from "./App";
 
 import Restaurant from "./Pages/Restaurant/Restaurant";
-import Hotel from "./Pages/Hotels/Hotel";
-import Appartement from "./Pages/Appartement/Appartement";
 import Coiffeur from "./Pages/Coiffeur/Coiffeur";
 import VTC from "./Pages/VTC/VTC";
 import Activity from "./Pages/Activity/Activity";
-import Evenement from "./Pages/Evenement/Evenement";
+import Evenement from "./Pages/Opticiens/Opticiens";
 import Home from "./Pages/Home";
 import Clubs from "./Pages/Clubs/Clubs";
+import Café_et_biscuitrie from "./Pages/Cafés et Biscuitrie/Café_et_biscuitrie";
+import Sneakers from "./Pages/Sneakers/Sneakers";
+
 export const router = createBrowserRouter([
     {
         path: "/",
@@ -22,7 +23,7 @@ export const router = createBrowserRouter([
                 element: <Home />
              },
              {
-                path: "/Resturants",
+                path: "/Restaurants",
                 element:<Restaurant />
              },
              {
@@ -30,7 +31,7 @@ export const router = createBrowserRouter([
                 element:<Coiffeur />
              },
              {
-                path: "/VTC",
+                path: "/Locations",
                 element:<VTC />
              },
              {
@@ -38,7 +39,7 @@ export const router = createBrowserRouter([
                element:<Activity />
              },
              {
-               path:"/Evenements",
+               path:"/Opticiens",
                element:<Evenement />
              },
              {
@@ -46,7 +47,12 @@ export const router = createBrowserRouter([
                element:<Clubs/>
              },
              {
-               path:""
+               path:"/Coffees",
+               element:< Café_et_biscuitrie/>
+             },
+             {
+              path:"/Sneakers",
+              element:<Sneakers />
              }
 
 

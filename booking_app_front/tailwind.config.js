@@ -10,6 +10,8 @@ export default {
       fontFamily: {
         dancing: ['"Dancing Script"', 'cursive'],
         poppins: ['Poppins', 'sans-serif'],
+        sansBody: ['Open Sans', 'sans-serif'],
+        sansTitle: ['Poppins',, 'sans-serif']
       },
       colors: {
         customBlue: '#0077B6',

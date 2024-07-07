@@ -5,3 +5,14 @@
 body {
     @apply font-poppins;
   }
+.headline {
+    @apply text-4xl font-bold text-night my-4;
+}
+
+.padding {
+    @apply px-4 py-16 max-sm:px-6 max-lg:px-8 ;
+}
+
+html{
+    scroll-behavior: smooth;
+}
