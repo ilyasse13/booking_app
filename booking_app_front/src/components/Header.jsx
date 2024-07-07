@@ -41,14 +41,14 @@ function classNames(...classes) {
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-const [langue,setLangue] = useState("FR")
+  const [langue, setLangue] = useState("FR")
   return (
     <header className="bg-customBlue text-white">
       <nav className="mx-auto flex max-w-7xl items-center justify-between p-3 lg:px-8" aria-label="Global">
         <div className="flex lg:flex-1">
           <a href="#" className="flex items-center space-x-4">
             <img className=" w-12" src="LOGO.png" alt="" />
-            <h1 className="text-xl font-dancing">LA BONNE ADRESSE</h1>
+            <h1 className="text-xl ">LA BONNE ADRESSE</h1>
           </a>
 
         </div>
@@ -63,49 +63,50 @@ const [langue,setLangue] = useState("FR")
           </button>
         </div>
         <PopoverGroup className="hidden lg:flex lg:gap-x-12">
-          <a href="/" className="text-sm font-semibold leading-6 text-white">
+          <a href="/" className="text-md font-medium leading-6 text-white hover:text-Lion transition duration-300 ease-in-out">
             Home
           </a>
-          <a href="/Resturants" className="text-sm font-semibold leading-6 text-white">
+
+          <a href="/Resturants" className="text-md font-medium leading-6 text-white hover:text-Lion transition duration-300 ease-in-out">
             Restaurants
           </a>
-          <a href="/Clubs" className="text-sm font-semibold leading-6 text-white">
-          Clubs
+          <a href="/Clubs" className="text-md font-medium leading-6 text-white hover:text-Lion transition duration-300 ease-in-out">
+            Clubs
           </a>
-          <a href="/Activités" className="text-sm font-semibold leading-6 text-white">
-          Activités
+          <a href="/Activités" className="text-md font-medium leading-6 text-white hover:text-Lion transition duration-300 ease-in-out">
+            Activités
           </a>
         </PopoverGroup>
-      
+
         <div className="hidden lg:flex lg:flex-1 lg:justify-end gap-10">
           <div>
-            langues: 
+            langues:
             <Menu as="div" className="relative inline-block ml-3 text-left">
-      <div>
-        <MenuButton className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-customBlue text-white px-3 py-2 text-sm font-semibold shadow-sm ring-1 ring-inset ring-gray-300">
-          {langue}
-          <ChevronDownIcon className="-mr-1 h-5 w-5 text-gray-400" aria-hidden="true" />
-        </MenuButton>
-      </div>
+              <div>
+                <MenuButton className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-customBlue text-white px-3 py-2 text-sm font-semibold shadow-sm ring-1 ring-inset ring-gray-300">
+                  {langue}
+                  <ChevronDownIcon className="-mr-1 h-5 w-5 text-gray-400" aria-hidden="true" />
+                </MenuButton>
+              </div>
 
-      <MenuItems
-  transition
-  className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 transition focus:outline-none data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-75 data-[enter]:ease-out data-[leave]:ease-in"
->
-  <div className="py-1">
-    <button onClick={()=>{setLangue("FR")}} className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-      Français
-    </button>
-    <button onClick={()=>{setLangue("EN")}} className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-      English
-    </button>
-    <button onClick={()=>{setLangue("ES")}} className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-      Español
-    </button>
-  </div>
-</MenuItems>
+              <MenuItems
+                transition
+                className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 transition focus:outline-none data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-75 data-[enter]:ease-out data-[leave]:ease-in"
+              >
+                <div className="py-1">
+                  <button onClick={() => { setLangue("FR") }} className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                    Français
+                  </button>
+                  <button onClick={() => { setLangue("EN") }} className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                    English
+                  </button>
+                  <button onClick={() => { setLangue("ES") }} className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                    Español
+                  </button>
+                </div>
+              </MenuItems>
 
-    </Menu>
+            </Menu>
           </div>
           <button>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">

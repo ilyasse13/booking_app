@@ -9,6 +9,7 @@ export default {
     extend: {
       fontFamily: {
         dancing: ['"Dancing Script"', 'cursive'],
+        poppins: ['Poppins', 'sans-serif'],
       },
       colors: {
         customBlue: '#0077B6',
