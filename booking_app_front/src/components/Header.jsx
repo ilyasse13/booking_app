@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
 import {
   Dialog,
   DialogPanel,
@@ -23,30 +24,31 @@ import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 
 
-const products = [
-  { name: 'Analytics', description: 'Get a better understanding of your traffic', href: '#', icon: ChartPieIcon },
-  { name: 'Engagement', description: 'Speak directly to your customers', href: '#', icon: CursorArrowRaysIcon },
-  { name: 'Security', description: 'Your customers’ data will be safe and secure', href: '#', icon: FingerPrintIcon },
-  { name: 'Integrations', description: 'Connect with third-party tools', href: '#', icon: SquaresPlusIcon },
-  { name: 'Automations', description: 'Build strategic funnels that will convert', href: '#', icon: ArrowPathIcon },
-]
-const callsToAction = [
-  { name: 'Watch demo', href: '#', icon: PlayCircleIcon },
-  { name: 'Contact sales', href: '#', icon: PhoneIcon },
-]
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
+
+
+
 
 export default function Header() {
+  const [isLangOpen, setIsLangOpen] = useState(false);
+
+  const toggleLangMenu = () => {
+    setIsLangOpen(!isLangOpen);
+  };
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const [langue, setLangue] = useState("FR")
+  const [langue, setLangue] = useState(localStorage.getItem("langue") ?? "FR");
+  const handleLanguageChange = (newLangue) => {
+    localStorage.setItem("langue", newLangue);
+    setLangue(localStorage.getItem("langue"))
+    console.log('langue changed to :', newLangue);
+    window.location.reload();
+  };
+
   return (
     <header className="bg-customBlue text-white">
       <nav className="mx-auto flex max-w-7xl items-center justify-between p-3 lg:px-8" aria-label="Global">
         <div className="flex lg:flex-1">
-          <a href="#" className="flex items-center space-x-4">
+          <a href="/" className="flex items-center space-x-4">
             <img className=" w-12" src="LOGO.png" alt="" />
             <h1 className="text-xl ">LA BONNE ADRESSE</h1>
           </a>
@@ -67,7 +69,7 @@ export default function Header() {
             Home
           </a>
 
-          <a href="/Resturants" className="text-md font-medium leading-6 text-white hover:text-Lion transition duration-300 ease-in-out">
+          <a href="/Restaurants" className="text-md font-medium leading-6 text-white hover:text-Lion transition duration-300 ease-in-out">
             Restaurants
           </a>
           <a href="/Clubs" className="text-md font-medium leading-6 text-white hover:text-Lion transition duration-300 ease-in-out">
@@ -94,13 +96,13 @@ export default function Header() {
                 className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 transition focus:outline-none data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-75 data-[enter]:ease-out data-[leave]:ease-in"
               >
                 <div className="py-1">
-                  <button onClick={() => { setLangue("FR") }} className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                  <button onClick={() => { handleLanguageChange("FR") }} className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                     Français
                   </button>
-                  <button onClick={() => { setLangue("EN") }} className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                  <button onClick={() => { handleLanguageChange("EN") }} className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                     English
                   </button>
-                  <button onClick={() => { setLangue("ES") }} className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                  <button onClick={() => { handleLanguageChange("ES") }} className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                     Español
                   </button>
                 </div>
@@ -108,12 +110,7 @@ export default function Header() {
 
             </Menu>
           </div>
-          <button>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">
-              <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
-            </svg>
 
-          </button>
         </div>
       </nav>
       <Dialog className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
@@ -123,8 +120,8 @@ export default function Header() {
             <a href="#" className="-m-1.5 p-1.5">
               <span className="sr-only">Your Company</span>
               <img
-                className="h-8 w-auto"
-                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                className="h-11 w-auto"
+                src="LOGO.png"
                 alt=""
               />
             </a>
@@ -140,57 +137,58 @@ export default function Header() {
           <div className="mt-6 flow-root">
             <div className="-my-6 divide-y divide-gray-500/10">
               <div className="space-y-2 py-6">
-                <Disclosure as="div" className="-mx-3">
-                  {({ open }) => (
-                    <>
-                      <DisclosureButton className="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
-                        Product
-                        <ChevronDownIcon
-                          className={classNames(open ? 'rotate-180' : '', 'h-5 w-5 flex-none')}
-                          aria-hidden="true"
-                        />
-                      </DisclosureButton>
-                      <DisclosurePanel className="mt-2 space-y-2">
-                        {products.map((item) => (
-                          <DisclosureButton
-                            key={item.name}
-                            as="a"
-                            href={item.href}
-                            className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                          >
-                            {item.name}
-                          </DisclosureButton>
-                        ))}
-                      </DisclosurePanel>
-                    </>
-                  )}
-                </Disclosure>
                 <a
-                  href="#"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                  href="/"
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-customBlue hover:bg-blue-50"
                 >
-                  Features
+                  Home
                 </a>
                 <a
-                  href="#"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                  href="/Restaurants"
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-customBlue hover:bg-blue-50"
                 >
-                  Marketplace
+                  Restaurants
                 </a>
                 <a
-                  href="#"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                  href="/Clubs"
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-customBlue hover:bg-blue-50"
                 >
-                  Company
+                  Clubs
+                </a>
+                <a
+                  href="/Activités"
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-customBlue hover:bg-blue-50"
+                >
+                  Activités
                 </a>
               </div>
               <div className="py-6">
-                <a
-                  href="#"
-                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                >
-                  Log in
-                </a>
+                <div className="flex justify-between items-center cursor-pointer" onClick={toggleLangMenu}>
+                  <span>Langues:</span>
+                  {isLangOpen ? <FaChevronUp /> : <FaChevronDown />}
+                </div>
+                {isLangOpen && (
+                  <div className="mt-2 space-y-2">
+                    <button
+                      onClick={() => setLangue("FR")}
+                      className="w-full text-left px-4 py-2 text-sm text-gray-900 bg-white hover:bg-gray-100"
+                    >
+                      Français
+                    </button>
+                    <button
+                      onClick={() => setLangue("EN")}
+                      className="w-full text-left px-4 py-2 text-sm text-gray-900 bg-white hover:bg-gray-100"
+                    >
+                      English
+                    </button>
+                    <button
+                      onClick={() => setLangue("ES")}
+                      className="w-full text-left px-4 py-2 text-sm text-gray-900 bg-white hover:bg-gray-100"
+                    >
+                      Español
+                    </button>
+                  </div>
+                )}
               </div>
             </div>
           </div>
