@@ -1,5 +1,7 @@
 import React from 'react'
 import homeComponentImg from '../../assets/travelPicture1.jpg';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faBookOpen} from '@fortawesome/free-solid-svg-icons';
 
 const HomeComponent2 = () => {
   return (
@@ -28,10 +30,13 @@ const HomeComponent2 = () => {
            <h2 className="headline sm:text-3xl  first-letter:text-customBlue font-sansTitle ">
           Découvrez la meilleure destination à Marseille
           </h2>
+          <hr />
 
           <p className="mt-4 text-night font-medium font-sansBody">
-           Ce site est conçu pour vous aider à trouver votre destination idéale, que vous soyez un visiteur pour la première fois ou un habitué de la ville. Grâce à nos recommandations détaillées et à nos conseils d'experts, vous pourrez explorer les trésors cachés de Marseille et profiter pleinement de votre séjour. Naviguez facilement à travers les différentes options de loisirs, de restauration et de visites culturelles pour planifier votre voyage parfait. Laissez-nous être votre guide dans cette magnifique ville méditerranéenne.
-
+           Ce site est conçu pour vous aider à trouver votre destination idéale, que vous soyez un visiteur pour la première fois ou un habitué de la ville. Grâce à nos recommandations détaillées et à nos conseils d'experts, vous pourrez explorer les trésors cachés de Marseille et profiter pleinement de votre séjour.
+            Naviguez facilement à travers les différentes options de loisirs,
+             de restauration et de visites culturelles pour planifier votre voyage parfait.
+              Laissez-nous être votre guide dans cette magnifique ville méditerranéenne. <FontAwesomeIcon icon={faBookOpen} className='text-Lion' />
           </p>
 
           <a

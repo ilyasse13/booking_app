@@ -85,6 +85,16 @@ import sportbeach2 from './sportbeach2.jpg'
 import sportbeach3 from './sportbeach3.jpg'
 import sportbeach4 from './sportbeach4.jpg'
 
+
+const calculateAverageAvis = (avis) => {
+
+    let totalAvis = 0;
+    for(const review of avis){
+      totalAvis += review.valeur;
+    }
+
+    return (totalAvis/ avis.length).toFixed(1);
+  }
 const  nights_club =[
     {
         id:1,
@@ -100,32 +110,32 @@ const  nights_club =[
             {
                 utilisateur: "Alex R.",
                 commentaire: "Rooftop is the place to be on a Saturday night! The music is always on point, and the vibe is electric. Can't wait to go back!",
-                valeur: 5/5
+                valeur: 5
             },
             {
                 utilisateur: "Mia T.",
                 commentaire: "Had an amazing time at Rooftop! The DJs are top-notch, and the drinks are reasonably priced. Definitely my new favorite spot.",
-                valeur: 4/5
+                valeur: 4
             },
             {
                 utilisateur: "James L.",
                 commentaire: "Great atmosphere and fantastic sound system at Rooftop. The crowd is lively and friendly. Perfect for a night out with friends.",
-                valeur: 5/5
+                valeur: 5
             },
             {
                 utilisateur: "Sophie H.",
                 commentaire: "Rooftop never disappoints. The staff is friendly, the decor is stylish, and the dance floor is always packed. Highly recommend!",
-                valeur: 5/5
+                valeur: 5
             },
             {
                 utilisateur: "Daniel M.",
                 commentaire: "Loved my experience at Rooftop. The lighting and visuals are amazing, and the overall energy is contagious. A must-visit!",
-                valeur: 4/5
+                valeur: 4
             },
             {
                 utilisateur: "Lily S.",
                 commentaire: "Rooftop is the best nightclub in town! The music selection is diverse, and the ambiance is perfect for a night of dancing and fun.",
-                valeur: 5/5
+                valeur: 5
             }
         ],
         siteweb:"https://lerooftopdesterrasses.com",
@@ -146,17 +156,17 @@ const  nights_club =[
             {
                 utilisateur: "Alex R.",
                 commentaire: "SportBeach is the ultimate spot for a night out! The combination of great music, delicious food, and stunning views makes it unbeatable. Highly recommend!",
-                valeur: 5/5
+                valeur: 5
             },
             {
                 utilisateur: "Mia T.",
                 commentaire: "Had an amazing time at SportBeach! The ambiance is fantastic, the DJs are excellent, and the food is top-notch. Can't wait to return!",
-                valeur: 4/5
+                valeur: 4
             },
             {
                 utilisateur: "James L.",
                 commentaire: "SportBeach offers an unforgettable experience",
-                valeur:5/5
+                valeur:5
              }
         ],
         siteweb:"https://sportbeach.fr",
@@ -218,12 +228,12 @@ const activités = [
             {
                 utilisateur:"Joseph",
                 commentaire:"Incroyable",
-                valeur:5/5
+                valeur:5
             },
             {
                 utilisateur:"Sandy",
                 commentaire:"elle était une bonne expérience de visiter ce cinema",
-                valeur:3/5
+                valeur:3
             },
           
         ],
@@ -245,22 +255,22 @@ const locations = [
             {
                 utilisateur: "Chloe_Bordeaux",
                 commentaire: "Un service fantastique de l'Agence Vespa à Marseille! Les scooters étaient impeccables et le personnel très serviable. Nous reviendrons certainement!",
-                valeur: 5/5/5
+                valeur: 5
             },
             {
-                "utilisateur": "Marc_Montpellier",
-                "commentaire": "J'ai adoré la facilité de location et la qualité des scooters. L'équipe est très professionnelle et attentionnée. Une expérience sans faute.",
-                "valeur": 4/5
+                utilisateur: "Marc_Montpellier",
+                commentaire: "J'ai adoré la facilité de location et la qualité des scooters. L'équipe est très professionnelle et attentionnée. Une expérience sans faute.",
+                valeur: 4
             },
             {
-                "utilisateur": "Isabelle_Nice",
-                "commentaire": "Service rapide et efficace, avec des scooters en excellent état. Le personnel a été très sympathique et accommodant. Une belle façon de découvrir Marseille.",
-                "valeur": 5/5
+                utilisateur: "Isabelle_Nice",
+                commentaire: "Service rapide et efficace, avec des scooters en excellent état. Le personnel a été très sympathique et accommodant. Une belle façon de découvrir Marseille.",
+                valeur: 5
             },
             {
-                "utilisateur": "Pauline_Lille",
-                "commentaire": "Super expérience! Les scooters étaient parfaits et le service client incroyable. L'Agence Vespa à Marseille est de loin la meilleure location de scooters que j'ai utilisée.",
-                "valeur": 5/5
+                utilisateur: "Pauline_Lille",
+                commentaire: "Super expérience! Les scooters étaient parfaits et le service client incroyable. L'Agence Vespa à Marseille est de loin la meilleure location de scooters que j'ai utilisée.",
+                valeur: 5
             }
         ],
         informations_importants :{
@@ -284,29 +294,29 @@ const locations = [
         images:[vespa1,vespa2,vespa3],
         avis: [
         {
-            "utilisateur": "JeanDupont92",
-            "commentaire": "Service exceptionnel! L'Agence Vespa à Marseille a rendu notre voyage inoubliable. Les scooters étaient en parfait état et le personnel très accueillant.",
-            "valeur": 5/5
+            utilisateur: "JeanDupont92",
+            commentaire: "Service exceptionnel! L'Agence Vespa à Marseille a rendu notre voyage inoubliable. Les scooters étaient en parfait état et le personnel très accueillant.",
+            valeur: 5
         },
         {
-            "utilisateur": "Marie_Lyon",
-            "commentaire": "Quelle expérience formidable! Le service client est au top et les scooters Vespa sont parfaits pour découvrir Marseille. Je recommande vivement.",
-            "valeur": 5/5
+            utilisateur: "Marie_Lyon",
+            commentaire: "Quelle expérience formidable! Le service client est au top et les scooters Vespa sont parfaits pour découvrir Marseille. Je recommande vivement.",
+            valeur: 5
         },
         {
-            "utilisateur": "Lucas_Toulouse",
-            "commentaire": "Agence très professionnelle avec des scooters de qualité. Le personnel est sympathique et prêt à aider. Une excellente façon d'explorer la ville!",
-            "valeur": 5/5
+            utilisateur: "Lucas_Toulouse",
+            commentaire: "Agence très professionnelle avec des scooters de qualité. Le personnel est sympathique et prêt à aider. Une excellente façon d'explorer la ville!",
+            valeur: 5
         },
         {
-            "utilisateur": "Sophie_Paris",
-            "commentaire": "Nous avons loué deux Vespas pour le week-end et tout s'est déroulé parfaitement. Merci à l'Agence Vespa pour leur service impeccable.",
-            "valeur": 5/5
+            utilisateur: "Sophie_Paris",
+            commentaire: "Nous avons loué deux Vespas pour le week-end et tout s'est déroulé parfaitement. Merci à l'Agence Vespa pour leur service impeccable.",
+            valeur: 5
         },
         {
-            "utilisateur": "AlexandreNice",
-            "commentaire": "Un service de première classe! Les scooters étaient comme neufs et le processus de location était rapide et simple. Très satisfait.",
-            "valeur": 5/5
+            utilisateur: "AlexandreNice",
+            commentaire: "Un service de première classe! Les scooters étaient comme neufs et le processus de location était rapide et simple. Très satisfait.",
+            valeur: 5
         }
         ],
         informations_importants :{
@@ -360,14 +370,14 @@ const opticiens = [
         images:[au_bon_oeil1,au_bon_oeil2,au_bon_oeil3,au_bon_oeil4,au_bon_oeil5],
         avis: [
             {
-                "utilisateur": "Lucas_R",
-                "commentaire": "Super expérience! Large choix de montures et un service client irréprochable. Je suis très satisfait de mes nouvelles lunettes.",
-                "valeur": 5/5
+                utilisateur: "Lucas_R",
+                commentaire: "Super expérience! Large choix de montures et un service client irréprochable. Je suis très satisfait de mes nouvelles lunettes.",
+                valeur: 5
             },
             {
-                "utilisateur": "Marie_L",
-                "commentaire": "Accueil chaleureux et professionnel. Mes enfants et moi avons trouvé des lunettes qui nous plaisent à tous. Merci, Optique Visionnaire!",
-                "valeur": 5/5
+                utilisateur: "Marie_L",
+                commentaire: "Accueil chaleureux et professionnel. Mes enfants et moi avons trouvé des lunettes qui nous plaisent à tous. Merci, Optique Visionnaire!",
+                valeur: 5
             }
         
         ],
@@ -390,17 +400,17 @@ const restaurants =[
         avis:[ 
             {
                 utilisateur:"LAURENT_L",
-                valeur: 5/5,
+                valeur: 5,
                 commentaire:"De passage sur Marseille envie d'un Brunch familial. Découvert par hasard sur internet. Je recommande grandement ce lieu accueil chaleureux, équipe dynamique et serviable. A essayer de toute urgence."
             },
             {
                 utilisateur:"MARIO_C",
-                valeur:5/5,
+                valeur:5,
                 commentaire:"C’était excellent, l’équipe au top la décoration c’était magnifique 🤩"
             },
             {
                 utilisateur:"SABRINA_L",
-                valeur:5/5,
+                valeur:5,
                 commentaire:"Nous avons passé un moment très agréable dans ce restaurant à la déco superbe. Les plats étaient excellents et le café merveilleux. service au top. Le seul bémol est la fumée des cuisines en salle. Je recommande fortement cette adresse à tous les épicuriens !"
             }
 
@@ -424,27 +434,27 @@ const restaurants =[
             {
                 utilisateur: "Claire_D",
                 commentaire: "Une expérience culinaire exceptionnelle! Les plats sont délicieux et l'ambiance tropicale est magnifique. Je recommande fortement!",
-                valeur: "5/5"
+                valeur: 5
             },
             {
                 utilisateur: "Julien_M",
                 commentaire: "Un cadre incroyable et une cuisine exotique savoureuse. The Jungle est le meilleur endroit pour une soirée mémorable à Marseille.",
-                valeur: 5/5
+                valeur: 5
             },
             {
                 utilisateur: "Sophie_T",
                 commentaire: "Service impeccable et décoration magnifique. Les cocktails sont aussi beaux que bons. Une adresse incontournable!",
-                valeur: 5/5
+                valeur: 5
             },
             {
                 utilisateur: "Marc_R",
                 commentaire: "Atmosphère unique et nourriture délicieuse. Nous avons passé une soirée fantastique. Merci à toute l'équipe de The Jungle!",
-                valeur: "5/5"
+                valeur: 5
             },
             {
                 utilisateur: "Elodie_L",
                 commentaire: "Une découverte surprenante! Les plats sont originaux et bien présentés, et l'ambiance est magique. À essayer absolument.",
-                valeur: "5/5"
+                valeur: 5
             }
         ], 
         siteweb:"https://vu.fr/xSlT"
@@ -463,22 +473,22 @@ const restaurants =[
             {
                 utilisateur: "Laura_B",
                 commentaire: "Une escapade italienne parfaite en plein Marseille! Les pâtes à la truffe sont à tomber et les pizzas délicieuses. Le décor est aussi magnifique.",
-                valeur: 5/5
+                valeur: 5
             },
             {
                 utilisateur: "Nicolas_V",
                 commentaire: "Le Splendido offre une expérience culinaire authentique avec un décor époustouflant. Les saveurs italiennes sont au rendez-vous, je reviendrai sans hésiter.",
-                valeur: "5/5"
+                valeur: 5
             },
             {
                 utilisateur: "Elodie_P",
                 commentaire: "Un cadre magnifique et des plats savoureux. Les pâtes à la truffe sont un must et les pizzas sont excellentes. Une vraie découverte!",
-                valeur: 5/5
+                valeur: 5
             },
             {
                 utilisateur: "Thomas_L",
                 commentaire: "Ambiance chaleureuse et cuisine italienne de qualité. Le Splendido est désormais mon restaurant italien préféré à Marseille.",
-                valeur: 5/5
+                valeur: 5
             }
         ], 
         siteweb:"https://www.sevenrooms.com/reservations/bigmamma/ig?venues=pizzeriapopolarebourse%2Cmammaprimiparis%2Ceastmamma%2Cpinkmamma%2Cobermamma%2Cbigloveparis%2Clibertinoparis%2Cpalatinorestaurant%2Cgiacomomontecarlo%2CCarmelolyon%2Csplendidomarseille%2Cbellezzavieuxlille",
@@ -498,22 +508,22 @@ const restaurants =[
             {
                 utilisateur: "Marie_P",
                 commentaire: "Une expérience culinaire exceptionnelle! Les plats sont délicieux et authentiques, avec une touche provençale. Le cadre est charmant et chaleureux.",
-                valeur:5/5
+                valeur:5
             },
             {
                 utilisateur: "Jean_L",
                 commentaire: "Un restaurant incontournable à Marseille. La cuisine est savoureuse et l'ambiance est parfaite pour un dîner en famille ou entre amis.",
-                valeur: 5/5
+                valeur: 5
             },
             {
                 utilisateur: "Sophie_M",
                 commentaire: "Service impeccable et plats exquis. J'ai adoré la touche personnelle des recettes de grand-mère Augustine. Je reviendrai sans hésiter.",
-                valeur: 5/5
+                valeur: 5
             },
             {
                 utilisateur: "Lucas_R",
                 commentaire: "Un véritable voyage culinaire en Provence! Les ingrédients sont frais et locaux, et chaque plat est préparé avec soin. Très recommandé.",
-                valeur: 5/5
+                valeur: 5
             }
         ], 
         siteweb:"https://latabledaugustine.fr/fr/booking",
@@ -531,7 +541,7 @@ const restaurants =[
         prix:"",
         horaires:" Du mardi au dimanche 12h-15h & 18h-23h",
         images:[leaudanslabouche1,leaudanslabouche2,leaudanslabouche3,leaudanslabouche4],
-        avis:  [], 
+        avis: [], 
         siteweb:"https://pizzerialeaualabouche.fr",
         informations_importants:{
         notes:"Les réservations sont possibles pour les services du MIDI et du SOIR. N’hésitez pas à nous contacter au 07 86 27 11 26. Pour les événements ou les groupes, envoyez nous votre demande par mail à latabledaugustine@gmail.com. Merci et à très vite."
@@ -552,32 +562,32 @@ const restaurants =[
             {
                 utilisateur: "Alice P.",
                 commentaire: "New School Tacos propose les meilleurs tacos de la ville ! Les ingrédients sont toujours frais et les saveurs incroyables. Un vrai régal !",
-                valeur: 5/5
+                valeur: 5
             },
             {
                 utilisateur: "Marc D.",
                 commentaire: "Super expérience chez New School Tacos. Les portions sont généreuses et les recettes sont innovantes. J'y retournerai sans hésiter.",
-                valeur: 4/5
+                valeur: 4
             },
             {
                 utilisateur: "Sophie L.",
                 commentaire: "J'adore ce restaurant ! Les tacos sont délicieux et l'ambiance est conviviale. Le service est rapide et les prix sont raisonnables.",
-                valeur: 5/5
+                valeur: 5
             },
             {
                 utilisateur: "Lucas M.",
                 commentaire: "Très satisfait de ma visite à New School Tacos. Les saveurs sont authentiques et les tacos sont bien garnis. Je recommande vivement !",
-                valeur: 4/5
+                valeur: 4
             },
             {
                 utilisateur: "Emma R.",
                 commentaire: "Une découverte fantastique ! Les tacos sont savoureux et variés. Le personnel est accueillant et le cadre est agréable.",
-                valeur: 5/5
+                valeur: 5
             },
             {
                 utilisateur: "Julien B.",
                 commentaire: "New School Tacos est devenu mon endroit préféré pour les tacos. Les ingrédients de qualité et les recettes originales en font un lieu incontournable.",
-                valeur: 5/5
+                valeur: 5
             }
         ],
         siteweb:"https://newschooltacos.fr",
@@ -598,12 +608,12 @@ const restaurants =[
             {
                 utilisateur: "Albert L.",
                 commentaire: "Marcella Trattoria offre une expérience culinaire italienne authentique. Les pâtes fraîches et les pizzas artisanales sont tout simplement délicieuses. Un endroit incontournable !",
-                valeur: 5/5
+                valeur: 5
             },
             {
                 utilisateur: "Julien R.",
                 commentaire: "J'ai adoré chaque moment passé à Marcella Trattoria. Le service est impeccable et les plats sont préparés avec soin et passion. Je reviendrai certainement.",
-                valeur: 4/5
+                valeur: 4
             }
         ],
         siteweb:"",
@@ -627,32 +637,32 @@ const coiffeurs = [
                 {
                     utilisateur: "John_S.",
                     commentaire: "Atelier Zaidi is my go-to barber shop! The atmosphere is so welcoming, and the barbers are incredibly skilled. I always leave feeling like a million bucks!",
-                    valeur: 5/5
+                    valeur: 5
                 },
                 {
                     utilisateur: "Emily_M.",
                     commentaire: "I stumbled upon Atelier Zaidi and couldn't be happier! The service was impeccable, and they really take the time to understand what you want. Highly recommend!",
-                    valeur: 5/5
+                    valeur: 5
                 },
                 {
                     utilisateur: "David_B.",
                     commentaire: "Great experience at Atelier Zaidi! The staff are friendly, and the haircut was spot-on. Definitely coming back for more!",
-                    valeur: 4/5
+                    valeur: 4
                 },
                 {
                     utilisateur: "Sarah_L.",
                     commentaire: "Atelier Zaidi exceeded my expectations. The attention to detail and the quality of the cut are unmatched. A gem in the neighborhood!",
-                    valeur: 5/5
+                    valeur: 5
                 },
                 {
                     utilisateur: "Michael_P.",
                     commentaire: "I've been going to Atelier Zaidi for years now, and they consistently deliver top-notch service. It's not just a haircut; it's an experience!",
-                    valeur: 5/5
+                    valeur: 5
                 },
                 {
                     utilisateur: "Jessica_K.",
                     commentaire: "If you're looking for a barber shop that combines style and professionalism, Atelier Zaidi is the place to go. Always satisfied with their work!",
-                    valeur: 5/5
+                    valeur: 5
                 }
             ],
             siteweb:"https://www.latelierzaidi.com/access-contact",
@@ -737,5 +747,14 @@ const TopDestinations=[
 
 
 ]
+
+
+// const categoryparams= [
+//     {category:"restaurants",
+//         image:"",
+//         description:"",
+//         elements:restaurants
+//     }
+// ]
 
 export {nights_club,sneakers,activités,restaurants,locations,coiffeurs,cafées_et_biscuitrie,opticiens,TopDestinations};

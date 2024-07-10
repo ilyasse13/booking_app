@@ -2,18 +2,23 @@ import React from 'react';
 import homeComponentImg from '../../assets/travelPicture1.jpg';
 import { TopDestinations } from '../../assets/data';
 import { useNavigate } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faMapLocation} from '@fortawesome/free-solid-svg-icons';
+
 
 const HomeComponent1 = () => {
 
 const Navigate=useNavigate();
 
   return (
-    <div className='bg-gradient-to-b from-gray-100 to-white  items-center justify-center p-6' id='top_destinations'>
-        <div className='text-center max-sm:text-left px-4 py-16 max-sm:px-6 max-lg:px-8'>
+    <div className='bg-gray-100 items-center justify-center p-6 mt-0 max-sm:mt-0 md:mt-20 lg:mt-60 xl:mt-20 ' id='top_destinations'>
+        <div className='text-left  px-4 py-16 max-sm:px-6 max-lg:px-8 '>
+            <p className='text-Lion text-lg font-sansTitle underline text-left' >Qu'est ce que vous cherchez ?</p>
              <h1 className='headline     first-letter:text-customBlue'>Meilleurs Destinations</h1>
-             <hr className='h-2 w-3/4 mx-auto' />
-             <p className='text-night font-sansBody text-lg w-1/2 mx-auto max-lg:w-2/3 max-md:w-3/4  max-sm:mx-0   max-sm:w-full '>
-             Explorez la culture vibrante, les paysages époustouflants et les trésors cachés de Marseille, votre escapade parfaite vous attend !
+             <hr className='h-2 w-1/2' />
+             <p className='text-night font-sansBody text-lg w-1/2   max-lg:w-2/3 max-md:w-3/4  max-sm:mx-0   max-sm:w-full '>
+             Explorez la culture vibrante, les paysages époustouflants et les trésors cachés de Marseille
+             , votre escapade parfaite vous attend ! <FontAwesomeIcon icon={faMapLocation} className='text-Lion'/> 
              </p>            
         </div>
 
