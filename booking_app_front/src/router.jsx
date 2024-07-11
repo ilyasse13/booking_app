@@ -12,6 +12,7 @@ import Home from "./Pages/Home";
 import Clubs from "./Pages/Clubs/Clubs";
 import Café_et_biscuitrie from "./Pages/Cafés et Biscuitrie/Café_et_biscuitrie";
 import Sneakers from "./Pages/Sneakers/Sneakers";
+import Cathegory from "./Pages/Cathegory/Cathegory";
 
 export const router = createBrowserRouter([
     {
@@ -24,36 +25,37 @@ export const router = createBrowserRouter([
              },
              {
                 path: "/Restaurants",
-                element:<Restaurant />
+                element:<Cathegory cat='Restaurants' />
              },
              {
                 path: "/Coiffeurs",
-                element:<Coiffeur />
+                element:<Cathegory cat='Coiffeurs' />
              },
              {
                 path: "/Locations",
-                element:<VTC />
+                element:<Cathegory cat='Locations'/>
              },
              {
                path: "/Activités",
-               element:<Activity />
+               element:<Cathegory cat='Activités'/>
              },
              {
                path:"/Opticiens",
-               element:<Evenement />
+               element:<Cathegory cat='Opticiens'/>
              },
              {
-               path:"/Clubs",
-               element:<Clubs/>
+               path:"/Nights-Club",
+               element:<Cathegory cat='Nights club'/>
              },
              {
-               path:"/Coffees",
-               element:< Café_et_biscuitrie/>
+               path:"/Cafées-et-biscuitrie",
+               element:<Cathegory cat='Cafées et biscuitrie'/>
              },
              {
               path:"/Sneakers",
-              element:<Sneakers />
-             }
+              element:<Cathegory cat='Sneakers'/>
+             },
+             
 
 
         ]

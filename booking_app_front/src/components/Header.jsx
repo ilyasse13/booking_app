@@ -72,7 +72,7 @@ export default function Header() {
           <a href="/Restaurants" className="text-md font-medium leading-6 text-white hover:text-Lion transition duration-300 ease-in-out">
             Restaurants
           </a>
-          <a href="/Clubs" className="text-md font-medium leading-6 text-white hover:text-Lion transition duration-300 ease-in-out">
+          <a href="/Nights-Club" className="text-md font-medium leading-6 text-white hover:text-Lion transition duration-300 ease-in-out">
             Clubs
           </a>
           <a href="/Activités" className="text-md font-medium leading-6 text-white hover:text-Lion transition duration-300 ease-in-out">
@@ -150,7 +150,7 @@ export default function Header() {
                   Restaurants
                 </a>
                 <a
-                  href="/Clubs"
+                  href="/Nights-Club"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-customBlue hover:bg-blue-50"
                 >
                   Clubs

@@ -7,12 +7,16 @@ const Hero = () => {
     const [searchQuery, setSearchQuery] = useState('');
     const [isPopupVisible, setIsPopupVisible] = useState(false);
     const [data,setData] = useState([...nights_club,...sneakers,...activités,...restaurants,...locations,...coiffeurs,...cafées_et_biscuitrie,...opticiens]);
-  
+    const [filteredData,setFilteredData]=useState([]);
     // Filter data based on the search query
+    useEffect(()=>{
 
-    const filteredData = data.filter(item =>
+        const result = searchQuery.trim()===""?[]:data.filter(item =>
         item.nom.toLowerCase().includes(searchQuery.toLowerCase())  
     );
+    setFilteredData(result)        
+    },[searchQuery,data])
+
   
     const handleSearchClick = () => {
       setIsPopupVisible(true);
@@ -54,7 +58,7 @@ const Hero = () => {
     return (
         <div className='bg-gradient-to-b from-gray-400 to-gray-100-to-white px-2'>
         <div
-              className="w-11/12 mx-auto  bg-cover bg-bottom grid items-center justify-center text-white text-center "
+              className="w-11/12 mx-auto  bg-cover bg-center grid items-center justify-center text-white text-center "
               style={{ backgroundImage: `url(${imagesWithContent[currentIndex].img})`,height: "90vh" }}
             >
               <div className="rounded-lg border-solid border-white border-8 p-0">
@@ -79,27 +83,32 @@ const Hero = () => {
                    
 
                     {isPopupVisible && (
-                      <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-                        <div className="bg-white p-6 rounded-lg shadow-lg relative text-night w-3/4 h-3/4">
+                      <div
+                       className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+                        <div className="bg-white p-6 rounded-lg shadow-lg  text-night w-fit mx-20 max-sm:mx-0 h-3/4 overflow-y-scroll relative ">
                           <button
                             onClick={closePopup}
-                            className="absolute top-0 right-0 mt-2 mr-2 text-black font-bold text-lg"
+                            className="absolute top-0 right-0 mt-2 mr-2 text-black  text-3xl border-2 border-white px-2 "
                           >
                             &times;
                           </button>
-                          <h2 className="text-2xl mb-4">Search Results</h2>
-                          <div className="flex flex-wrap">
+                          <h2 className="text-2xl mb-4 pt-4 font-bold">Search Results</h2>
+                          <hr className='bg-Lion w-56 text-center mx-auto' />
+                          <br />
+                          <div className="flex flex-wrap  relative gap-10 justify-between max-sm:grid max-sm:w-full">
                             {filteredData.length > 0 ? (
-                              filteredData.map(item => (
-                                <div key={item.id} className="mb-2 bg-Lion text-lg text-gray-50 rounded-lg w-72 h-74 px-4 p-2 relative text-center ">
+                              filteredData.map(item =>{ 
+                                
+                                return(
+                                <div key={item.id} className="relative text-lg  rounded-lg flex gap-4  border-2 border-customBlue overflow-hidden w-auto  max-sm:grid max-sm:h-full">
                                  
-                                 <img src={item.images[0]} className='h-24 w-24 align-middle mx-auto' />
-                                 <h2 className='font-bold'>{item.nom}</h2> 
-                                  <a href="#" className='p-2  text-customBlue bg-gray-50  top-56 left-2 rounded-xl'>View Details</a>
+                                 <img src={item.images[0]} className=' w-20 h-21  md:h-16 md:w-16 max-sm:w-full max-sm:h-32 ' />
+                                 <h2 className='text-lg font-semibold w-56 max-sm:w-40 text-left max-sm:text-lg max-sm:font-normal max-sm:px-3 '>{item.nom}</h2> 
+                                  <a href={item.path} className='bg-black text-white px-2 py-3 rounded-sm cursor-pointer '>Visiter</a>
                                 </div>
-                              ))
+                              )})
                             ) : (
-                              <li>No results found</li>
+                              <p className='mx-auto mt-10 text-red-600 text-lg'> No results found !</p>
                             )}                            
                           </div>
                            
