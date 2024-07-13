@@ -139,7 +139,8 @@ const  nights_club =[
             }
         ],
         siteweb:"https://lerooftopdesterrasses.com",
-        informations_importants:{}
+        informations_importants:{},
+        path:"Nights-club/LE_ROOFTOP"
         
     },
     {
@@ -170,7 +171,9 @@ const  nights_club =[
              }
         ],
         siteweb:"https://sportbeach.fr",
-        informations_importants:{}
+        informations_importants:{},
+        path:"Nights-club/LE_SPORT_BEACH"
+
         
     }
 
@@ -186,7 +189,9 @@ const sneakers =[
         images:[sasgalerie1,sasgalerie2,sasgalerie3,sasgalerie4],
         horaires:"•Lundi——>Samedi📌 •10H——> 19H🕖",
         siteweb:"https://sasgalerie.com",
-        informations_importants:{}
+        informations_importants:{},
+        path:"Sneakers/SAS_GALERIE_SNEAKERS"
+        
     },
     {
         id:2,
@@ -197,7 +202,9 @@ const sneakers =[
         images:[basket1,basket2,basket3,basket4,basket5,basket6],
         horaires:"du lundi au samedi 11h00-12h15 / 13h15-19h00",
         siteweb:"https://www.latelierdelabasket.com",
-        informations_importants:{}
+        informations_importants:{},
+        path:"Sneakers/L'Atelier_de_la_Basket"
+
 
     },
     {
@@ -209,7 +216,9 @@ const sneakers =[
         images:[OS1,OS2,OS3,OS4],
         horaires:"",
         siteweb:"",
-        informations_importants:{}
+        informations_importants:{},
+        path:"Sneakers/OS_Sneakers"
+
     }
 
 ];
@@ -238,6 +247,8 @@ const activités = [
           
         ],
         informations_importants :{},
+        path:"Activités/Cinéma_La_Joliette"
+
 
     }
 ];
@@ -282,6 +293,7 @@ const locations = [
             conditions_de_résérvation:[],
             notes:[]
         },
+        path:"locations/Vita_Loca"
     },
     {
         id:2,
@@ -345,7 +357,9 @@ const locations = [
                 "En cas de dégâts constatés sur le scooter, ceux-ci serom prélevés sur la caution versée par le locataire De plus, une déduction sera appliquée pour les jours où le scooter est immobilisé, afin de compenser les pertes de reveras encourues par le loueur."
             ]
         
-        },        
+        },
+        path:"locations/Fais_Ta_Loc"
+
     },
 
 ]
@@ -358,7 +372,8 @@ const opticiens = [
         téléphone:"0413203026 ou 049170772",
         images:[ov_optic1,ov_optic2],
         avis: [],
-        résérvation :"http://wa.me/message/SXA7U3LZYWQZO1"
+        résérvation :"http://wa.me/message/SXA7U3LZYWQZO1",
+        path:"Opticiens/Ov_Optic"
 
     },
     {
@@ -382,9 +397,12 @@ const opticiens = [
         
         ],
         horaires:"Horaires :Lun-Jeu: 9h30-19h•Ven: 9h30-14h•Dimanche sur rdv 🗓️ 📝 Examen de vue - ordonnances en 48h ",
-        résérvation :"https://vu.fr/BHqde"
+        résérvation :"https://vu.fr/BHqde",
+        path:"Opticiens/Au_Bon_Oeil"
+
 
     }
+
 ]
 const restaurants =[
     {
@@ -416,13 +434,15 @@ const restaurants =[
 
         ],
         siteweb:"https://www.lerestaurant24.fr",
-        informations_importants:{}
+        informations_importants:{},
+        path:"Restaurants/Restaurant_Le_24"
+
 
 
     },
     {
         id:2,
-        nom:" thejungle_marseille",
+        nom:" the jungle marseille",
         slogan:"🅑🅡🅤🅝🅒🅗&🅛🅤🅝🅒🅗",
         description:"Plongez dans une oasis tropicale au cœur de Marseille avec The Jungle Restaurant. Dégustez des plats exotiques et des cocktails vibrants entourés d'une verdure luxuriante et d'une ambiance captivante. Parfait pour une expérience culinaire unique.",
         adresse:"📍68 Rue Breteuil 13006",
@@ -457,7 +477,10 @@ const restaurants =[
                 valeur: "5 "
             }
         ], 
-        siteweb:"https://vu.fr/xSlT"
+        siteweb:"https://vu.fr/xSlT",
+        informations_importants:{},
+        path:"Restaurants/the_jungle_marseille"
+
     },
     {
         id:3,
@@ -492,7 +515,9 @@ const restaurants =[
             }
         ], 
         siteweb:"https://www.sevenrooms.com/reservations/bigmamma/ig?venues=pizzeriapopolarebourse%2Cmammaprimiparis%2Ceastmamma%2Cpinkmamma%2Cobermamma%2Cbigloveparis%2Clibertinoparis%2Cpalatinorestaurant%2Cgiacomomontecarlo%2CCarmelolyon%2Csplendidomarseille%2Cbellezzavieuxlille",
-        informations_importants:{} 
+        informations_importants:{},
+        path:"Restaurants/Le_Splendido"
+
     },
     {
         id:4,
@@ -529,7 +554,9 @@ const restaurants =[
         siteweb:"https://latabledaugustine.fr/fr/booking",
         informations_importants:{
             notes:"Les réservations sont possibles pour les services du MIDI et du SOIR. N’hésitez pas à nous contacter au 07 86 27 11 26. Pour les événements ou les groupes, envoyez nous votre demande par mail à latabledaugustine@gmail.com. Merci et à très vite."
-        }        
+        } ,
+        path:"Restaurants/La_Table_D'augustine"
+
     },
     {
         id:5,
@@ -545,7 +572,9 @@ const restaurants =[
         siteweb:"https://pizzerialeaualabouche.fr",
         informations_importants:{
         notes:"Les réservations sont possibles pour les services du MIDI et du SOIR. N’hésitez pas à nous contacter au 07 86 27 11 26. Pour les événements ou les groupes, envoyez nous votre demande par mail à latabledaugustine@gmail.com. Merci et à très vite."
-        }
+        },
+        path:"Restaurants/Pizzeria_Leau_à_La_Bouche"
+        
 
     },
     {
@@ -591,7 +620,9 @@ const restaurants =[
             }
         ],
         siteweb:"https://newschooltacos.fr",
-        informations_importants:{}
+        informations_importants:{},
+        path:"Restaurants/New_School_Tacos_Marseille"
+
 
     },
     {
@@ -617,7 +648,9 @@ const restaurants =[
             }
         ],
         siteweb:"",
-        informations_importants:{}
+        informations_importants:{},
+        path:"Restaurants/Marcella_Trattoria"
+
 
     }
 
@@ -666,7 +699,9 @@ const coiffeurs = [
                 }
             ],
             siteweb:"https://www.latelierzaidi.com/access-contact",
-            informations_importants:{}
+            informations_importants:{},
+            path:"Coiffeurs/L'atelier_de_Zaidi"
+
 
 
         },
@@ -684,7 +719,8 @@ const cafées_et_biscuitrie = [
         images:[donut1,donut2,donut3],
         avis:[],
         siteweb:"https://linktr.ee/DonutsCoffee.fr",
-        informations_importants:{}
+        informations_importants:{},
+        path:"Cafées-et-biscuitrie/DONUTS_COFFEE_à_Marseille"
     },
     {
         id:2,
@@ -697,7 +733,9 @@ const cafées_et_biscuitrie = [
         images:[biscuit1,biscuit2,biscuit3],
         avis:[],
         siteweb:"https://le-grand-pastis.com/180-la-biscuiterie-tradition-endoume-marseille",
-        informations_importants:{}
+        informations_importants:{},
+        path:"Cafées-et-biscuitrie/180_Biscuitrie_Arisanale"
+
 
     }
 
