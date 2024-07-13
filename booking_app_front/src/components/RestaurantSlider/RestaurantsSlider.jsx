@@ -42,7 +42,7 @@ const RestaurantsSlider = () => {
     return (totalAvis/ avis.length).toFixed(1);
   };
 
-  const filtredRestaurants = restaurants.filter((restaurant)=>calculateAverageAvis(restaurant.avis)==5 );
+  const filtredRestaurants = restaurants.filter((restaurant)=>calculateAverageAvis(restaurant.avis)>=4.5 );
 
 
   return (

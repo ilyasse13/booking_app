@@ -69,7 +69,7 @@ const Hero = () => {
                     <input
                       type="text"
                       placeholder="Search..."
-                      className="border border-Lion p-2 mb-4  rounded text-black"
+                     className=" ring-black/40 focus:ring-2 outline-none p-2 mb-4 rounded text-black"
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
                     />
@@ -84,7 +84,7 @@ const Hero = () => {
 
                     {isPopupVisible && (
                       <div
-                       className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+                       className="fixed z-50 inset-0 flex items-center justify-center bg-black bg-opacity-50">
                         <div className="bg-white p-6 rounded-lg shadow-lg  text-night w-fit mx-20 max-sm:mx-0 h-3/4 overflow-y-scroll relative ">
                           <button
                             onClick={closePopup}

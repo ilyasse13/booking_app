@@ -6,7 +6,7 @@ const Cathegory = ({cat}) => {
     
     const averageRating = (i)=>{
       if(categoryData.name=='Sneakers'){
-        return 'NaN'
+        return 
       }
       let average =categoryData.element[i].avis.reduce((total, avis) => total + avis.valeur, 0) / categoryData.element[i].avis.length;
       return average.toFixed(1);
@@ -18,7 +18,7 @@ const Cathegory = ({cat}) => {
       <img className="w-full h-auto object-cover rounded" src={categoryData.image} alt="eee" />
     </div>
     <div className="md:w-2/3 p-4 md:pr-8">
-      <h2 className="text-3xl font-semibold mb-4">{categoryData.name}</h2>
+      <h2 className="text-3xl font-semibold first-letter:text-customBlue mb-4">{categoryData.name}</h2>
       <p className="text-lg">{categoryData.description}</p>
     </div>
   </section>
@@ -27,12 +27,12 @@ const Cathegory = ({cat}) => {
   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
     {categoryData.element.map((item,i)=>{
       return(
-        <a href={`/${categoryData.path}/${item.nom}`} key={i} className="max-w-sm rounded overflow-hidden shadow-lg">
+        <a href={`/${categoryData.path}/${item.path}`} key={i} className="max-w-sm rounded overflow-hidden shadow-lg">
       <img className="w-full h-48 object-cover" src={item.images[0]} alt="Restaurant Image"/>
       <div className="px-6 py-4">
         <div className="font-bold text-xl mb-2">{item.nom}</div>
         <p className="text-gray-700 text-base">
-          Téléphone : {item.téléphone}
+          Téléphone : {item.téléphone ? item.téléphone : 'Non renseigné'}
         </p>
         <div className="mt-4 flex items-center">
         <span className='text-lg font-semibold'>{averageRating(i)}</span>

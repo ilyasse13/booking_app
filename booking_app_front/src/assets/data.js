@@ -416,7 +416,8 @@ const restaurants =[
 
         ],
         siteweb:"https://www.lerestaurant24.fr",
-        informations_importants:{}
+        informations_importants:{},
+
 
 
     },
