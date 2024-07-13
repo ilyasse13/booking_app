@@ -140,7 +140,8 @@ const  nights_club =[
         ],
         siteweb:"https://lerooftopdesterrasses.com",
         informations_importants:{},
-        path:"LE_ROOFTOP"
+        path:"Nights-club/LE_ROOFTOP",
+        uri:"LE_ROOFTOP"
         
     },
     {
@@ -172,7 +173,8 @@ const  nights_club =[
         ],
         siteweb:"https://sportbeach.fr",
         informations_importants:{},
-        path:"LE_SPORT_BEACH"
+        path:"Nights-club/LE_SPORT_BEACH",
+        uri:"LE_SPORT_BEACH"
 
         
     }
@@ -190,7 +192,8 @@ const sneakers =[
         horaires:"•Lundi——>Samedi📌 •10H——> 19H🕖",
         siteweb:"https://sasgalerie.com",
         informations_importants:{},
-        path:"SAS_GALERIE_SNEAKERS"
+        path:"Sneakers/SAS_GALERIE_SNEAKERS",
+        uri:"SAS_GALERIE_SNEAKERS"
         
     },
     {
@@ -203,7 +206,8 @@ const sneakers =[
         horaires:"du lundi au samedi 11h00-12h15 / 13h15-19h00",
         siteweb:"https://www.latelierdelabasket.com",
         informations_importants:{},
-        path:"L'Atelier_de_la_Basket"
+        path:"Sneakers/L'Atelier_de_la_Basket",
+        uri:"L'Atelier_de_la_Basket"
 
 
     },
@@ -217,7 +221,8 @@ const sneakers =[
         horaires:"",
         siteweb:"",
         informations_importants:{},
-        path:"OS_Sneakers"
+        path:"Sneakers/OS_Sneakers",
+        uri:"OS_Sneakers"
 
     }
 
@@ -247,7 +252,8 @@ const activités = [
           
         ],
         informations_importants :{},
-        path:"Cinéma_La_Joliette"
+        path:"Activités/Cinéma_La_Joliette",
+        uri:"Cinéma_La_Joliette"
 
 
     }
@@ -293,7 +299,8 @@ const locations = [
             conditions_de_résérvation:[],
             notes:[]
         },
-        path:"Vita_Loca"
+        path:"locations/Vita_Loca",
+        uri:"Vita_Loca"
     },
     {
         id:2,
@@ -358,7 +365,8 @@ const locations = [
             ]
         
         },
-        path:"Fais_Ta_Loc"
+        path:"locations/Fais_Ta_Loc",
+        uri:"Fais_Ta_Loc"
 
     },
 
@@ -373,7 +381,8 @@ const opticiens = [
         images:[ov_optic1,ov_optic2],
         avis: [],
         résérvation :"http://wa.me/message/SXA7U3LZYWQZO1",
-        path:"Ov_Optic"
+        path:"Opticiens/Ov_Optic",
+        uri:"Ov_Optic"
 
     },
     {
@@ -398,7 +407,8 @@ const opticiens = [
         ],
         horaires:"Horaires :Lun-Jeu: 9h30-19h•Ven: 9h30-14h•Dimanche sur rdv 🗓️ 📝 Examen de vue - ordonnances en 48h ",
         résérvation :"https://vu.fr/BHqde",
-        path:"Au_Bon_Oeil"
+        path:"Opticiens/Au_Bon_Oeil",
+        uri:"Au_Bon_Oeil"
 
 
     }
@@ -434,7 +444,10 @@ const restaurants =[
 
         ],
         siteweb:"https://www.lerestaurant24.fr",
-        informations_importants:{}
+        informations_importants:{},
+        path:"Restaurants/Restaurant_Le_24",
+        uri:"Restaurant_Le_24"
+
 
 
     },
@@ -477,7 +490,8 @@ const restaurants =[
         ], 
         siteweb:"https://vu.fr/xSlT",
         informations_importants:{},
-        path:"the_jungle_marseille"
+        path:"Restaurants/the_jungle_marseille",
+        uri:"the_jungle_marseille"
 
     },
     {
@@ -514,7 +528,8 @@ const restaurants =[
         ], 
         siteweb:"https://www.sevenrooms.com/reservations/bigmamma/ig?venues=pizzeriapopolarebourse%2Cmammaprimiparis%2Ceastmamma%2Cpinkmamma%2Cobermamma%2Cbigloveparis%2Clibertinoparis%2Cpalatinorestaurant%2Cgiacomomontecarlo%2CCarmelolyon%2Csplendidomarseille%2Cbellezzavieuxlille",
         informations_importants:{},
-        path:"Le_Splendido"
+        path:"Restaurants/Le_Splendido",
+        uri:"Le_Splendido"
 
     },
     {
@@ -553,7 +568,8 @@ const restaurants =[
         informations_importants:{
             notes:"Les réservations sont possibles pour les services du MIDI et du SOIR. N’hésitez pas à nous contacter au 07 86 27 11 26. Pour les événements ou les groupes, envoyez nous votre demande par mail à latabledaugustine@gmail.com. Merci et à très vite."
         } ,
-        path:"La_Table_D'augustine"
+        path:"Restaurants/La_Table_D'augustine",
+        uri:"La_Table_D'augustine"
 
     },
     {
@@ -571,7 +587,8 @@ const restaurants =[
         informations_importants:{
         notes:"Les réservations sont possibles pour les services du MIDI et du SOIR. N’hésitez pas à nous contacter au 07 86 27 11 26. Pour les événements ou les groupes, envoyez nous votre demande par mail à latabledaugustine@gmail.com. Merci et à très vite."
         },
-        path:"Pizzeria_Leau_à_La_Bouche"
+        path:"Restaurants/Pizzeria_Leau_à_La_Bouche",
+        uri:"Pizzeria_Leau_à_La_Bouche"
         
 
     },
@@ -619,7 +636,8 @@ const restaurants =[
         ],
         siteweb:"https://newschooltacos.fr",
         informations_importants:{},
-        path:"New_School_Tacos_Marseille"
+        path:"Restaurants/New_School_Tacos_Marseille",
+        uri:"New_School_Tacos_Marseille"
 
 
     },
@@ -647,7 +665,8 @@ const restaurants =[
         ],
         siteweb:"",
         informations_importants:{},
-        path:"Marcella_Trattoria"
+        path:"Restaurants/Marcella_Trattoria",
+        uri:"Marcella_Trattoria"
 
 
     }
@@ -698,7 +717,8 @@ const coiffeurs = [
             ],
             siteweb:"https://www.latelierzaidi.com/access-contact",
             informations_importants:{},
-            path:"L'atelier_de_Zaidi"
+            path:"Coiffeurs/L'atelier_de_Zaidi",
+            uri:"L'atelier_de_Zaidi",
 
 
 
@@ -718,7 +738,8 @@ const cafées_et_biscuitrie = [
         avis:[],
         siteweb:"https://linktr.ee/DonutsCoffee.fr",
         informations_importants:{},
-        path:"Cafées-et-biscuitrie/DONUTS_COFFEE_à_Marseille"
+        path:"Cafées-et-biscuitrie/DONUTS_COFFEE_à_Marseille",
+        uri:"DONUTS_COFFEE_à_Marseille",
     },
     {
         id:2,
@@ -732,7 +753,8 @@ const cafées_et_biscuitrie = [
         avis:[],
         siteweb:"https://le-grand-pastis.com/180-la-biscuiterie-tradition-endoume-marseille",
         informations_importants:{},
-        path:"180_Biscuitrie_Arisanale"
+        path:"Cafées-et-biscuitrie/180_Biscuitrie_Arisanale",
+        uri:"180_Biscuitrie_Arisanale",
 
 
     }

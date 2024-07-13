@@ -27,7 +27,7 @@ const Cathegory = ({cat}) => {
   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
     {categoryData.element.map((item,i)=>{
       return(
-        <a href={`/${categoryData.path}/${item.path}`} key={i} className="max-w-sm rounded overflow-hidden shadow-lg">
+        <a href={`/${item.path}`} key={i} className="max-w-sm rounded overflow-hidden shadow-lg">
       <img className="w-full h-48 object-cover" src={item.images[0]} alt="Restaurant Image"/>
       <div className="px-6 py-4">
         <div className="font-bold text-xl mb-2">{item.nom}</div>

@@ -3,9 +3,9 @@ import { useParams } from 'react-router-dom';
 import { restaurants } from '../../assets/data';
 
 const Restaurant = () => {
-  const { path } = useParams();
+  const { uri } = useParams();
  
-  const restaurant = restaurants.find((resto) => resto.path === path);
+  const restaurant = restaurants.find((resto) => resto.uri === uri);
 
   if (!restaurant) {
     return <div>Restaurant not found</div>;
