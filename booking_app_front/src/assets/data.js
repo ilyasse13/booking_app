@@ -84,6 +84,7 @@ import sportbeach1 from './sportbeach1.jpg'
 import sportbeach2 from './sportbeach2.jpg'
 import sportbeach3 from './sportbeach3.jpg'
 import sportbeach4 from './sportbeach4.jpg'
+import hotels from './hotels.jpg'
 
 
 const calculateAverageAvis = (avis) => {
@@ -454,7 +455,7 @@ const restaurants =[
             {
                 utilisateur: "Claire_D",
                 commentaire: "Une expérience culinaire exceptionnelle! Les plats sont délicieux et l'ambiance tropicale est magnifique. Je recommande fortement!",
-                valeur: "5 "
+                valeur: 5
             },
             {
                 utilisateur: "Julien_M",
@@ -469,12 +470,12 @@ const restaurants =[
             {
                 utilisateur: "Marc_R",
                 commentaire: "Atmosphère unique et nourriture délicieuse. Nous avons passé une soirée fantastique. Merci à toute l'équipe de The Jungle!",
-                valeur: "5 "
+                valeur: 5 
             },
             {
                 utilisateur: "Elodie_L",
                 commentaire: "Une découverte surprenante! Les plats sont originaux et bien présentés, et l'ambiance est magique. À essayer absolument.",
-                valeur: "5 "
+                valeur: 5 
             }
         ], 
         siteweb:"https://vu.fr/xSlT",
@@ -740,6 +741,7 @@ const cafées_et_biscuitrie = [
     }
 
 ];
+const hébergements =[];
 
 const TopDestinations=[
     {
@@ -781,10 +783,15 @@ const TopDestinations=[
         name:"Sneakers",
         img:OS3,
         URI:"Sneakers"
+    },
+    {
+        name:"Hébergements",
+        img:hotels,
+        URI:"Hébergements"
     }
 
 
-]
+];
 const CategoryParams=[
     {
         name:"Restaurants",
@@ -852,7 +859,15 @@ const CategoryParams=[
         image:'nightsClubcat.jpg',
         path:'Nights-Club'
     },
+    {
+        name:"Hébergements",
+        element:hébergements,
+        description:"Marseille offre une variété d'hébergements charmants et accueillants, adaptés à tous les budgets et préférences. Découvrez une sélection d'hôtels élégants, d'auberges conviviales et de locations de vacances confortables, chacun offrant une expérience unique au cœur de cette ville dynamique. Que vous soyez en quête de luxe, de simplicité ou d'un séjour authentique, laissez-vous séduire par notre gamme d'hébergements pour profiter pleinement de votre visite à Marseille. Vivez des moments inoubliables et faites de votre séjour une véritable escapade marseillaise.",
+        filter:[],
+        image:'hotelMarseille.jpg',
+        path:"Hébergements"
+    }
     
 ]
 
-export {CategoryParams,nights_club,sneakers,activités,restaurants,locations,coiffeurs,cafées_et_biscuitrie,opticiens,TopDestinations};
+export {CategoryParams,nights_club,sneakers,activités,restaurants,locations,coiffeurs,cafées_et_biscuitrie,opticiens,TopDestinations,calculateAverageAvis};

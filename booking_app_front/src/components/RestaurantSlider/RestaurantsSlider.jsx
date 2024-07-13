@@ -5,8 +5,10 @@ import Slider from "react-slick";
 import { restaurants } from '../../assets/data';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faUtensils} from '@fortawesome/free-solid-svg-icons';
+// import {useNavigate} from "react-router-dom";
 
 
+// const Navigate=useNavigate();
 const RestaurantsSlider = () => {
   const settings = {
     dots: true,
@@ -67,7 +69,9 @@ const RestaurantsSlider = () => {
             </div>
             <div className='h-40 lg:h-48  bg-gradient-to-t from-gray-50 to-white px-4 pt-4  font-semibold'>
             <p className='text-night'>{restaurant.slogan} </p>
-            <button className='text-Lion bg-gray-200 py-4 px-6 rounded-md absolute bottom-6'>Explorer</button>
+            <button className='text-Lion bg-gray-200 py-4 px-6 rounded-md absolute bottom-6'
+            // onClick={()=>{Navigate(restaurant.path)}}
+            >Explorer</button>
             </div>
 
 

@@ -49,10 +49,18 @@ const Navigate=useNavigate();
                     {TopDestinations[6].name}</p>   
             
             </div>
+            <div
+            onClick={()=>Navigate(TopDestinations[8].URI)} 
+            className='max-md:col-span-2 max-md:row-span-2   col-span-2 row-span-3 bg-night rounded-3xl bg-cover bg-center overflow-hidden transition-transform duration-1000 ease-in-out transform hover:scale-90'
+                style={{backgroundImage: `url(${TopDestinations[8].img})`}} >
+                <p className='font-dancing text-2xl font-extrabold  text-beige absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center rounded-3xl cursor-pointer hover:bg-transparent hover:text-night'>
+                    {TopDestinations[8].name}
+                </p>
+            </div>
 
             <div
             onClick={()=>Navigate(TopDestinations[1].URI)} 
-            className='max-md:col-span-2 max-md:row-span-2   col-span-3 row-span-3 bg-night rounded-3xl bg-cover bg-center overflow-hidden transition-transform duration-1000 ease-in-out transform hover:scale-90'
+            className='max-md:col-span-2 max-md:row-span-2   col-span-2 row-span-3 bg-night rounded-3xl bg-cover bg-center overflow-hidden transition-transform duration-1000 ease-in-out transform hover:scale-90'
                 style={{backgroundImage: `url(${TopDestinations[1].img})`}} >
                 <p className='font-dancing text-2xl font-extrabold  text-beige absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center rounded-3xl cursor-pointer hover:bg-transparent hover:text-night'>
                     {TopDestinations[1].name}
@@ -61,7 +69,7 @@ const Navigate=useNavigate();
 
             <div
             onClick={()=>Navigate(TopDestinations[2].URI)}
-            className='max-md:col-span-2 max-md:row-span-2  col-span-3 row-span-3 bg-night rounded-3xl bg-cover bg-center overflow-hidden transition-transform duration-1000 ease-in-out transform hover:scale-90 '
+            className='max-md:col-span-2 max-md:row-span-2  col-span-2 row-span-3 bg-night rounded-3xl bg-cover bg-center overflow-hidden transition-transform duration-1000 ease-in-out transform hover:scale-90 '
                 style={{backgroundImage: `url(${TopDestinations[2].img})`}} >
                 <p className='font-dancing text-2xl font-extrabold  text-beige absolute inset-0 bg-black bg-opacity-20   flex items-center justify-center rounded-3xl cursor-pointer hover:bg-transparent hover:text-night'>
                     {TopDestinations[2].name}

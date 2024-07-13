@@ -55,6 +55,10 @@ export const router = createBrowserRouter([
               path:"/Sneakers",
               element:<Cathegory cat='Sneakers'/>
              },
+             {
+              path:"/hébergements",
+              element:<Cathegory cat='Hébergements' />
+             }
              
 
 

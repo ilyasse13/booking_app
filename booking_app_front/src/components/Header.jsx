@@ -50,7 +50,7 @@ export default function Header() {
         <div className="flex lg:flex-1">
           <a href="/" className="flex items-center space-x-4">
             <img className=" w-12" src="LOGO.png" alt="" />
-            <h1 className="text-lg "><span className='text-xl font-bold font-sansBody text-Lion'>LA BONNE</span>  ADRESSE</h1>
+            <h1 className="text-lg "><span className='text-xl font-extrabold font-sansBody text-night'>LA BONNE</span>  ADRESSE</h1>
           </a>
 
         </div>

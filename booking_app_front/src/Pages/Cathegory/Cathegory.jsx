@@ -5,10 +5,7 @@ const Cathegory = ({cat}) => {
     const categoryData = CategoryParams.find((category) => category.name === cat);
     
     const averageRating = (i)=>{
-      if(categoryData.name=='Sneakers'){
-        return 'NaN'
-      }
-      let average =categoryData.element[i].avis.reduce((total, avis) => total + avis.valeur, 0) / categoryData.element[i].avis.length;
+       let average = categoryData.element[i].avis ? categoryData.element[i].avis.reduce((total, avis) => total + avis.valeur, 0) / categoryData.element[i].avis.length:"";
       return average.toFixed(1);
     }
   return (

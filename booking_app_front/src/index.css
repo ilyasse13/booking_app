@@ -17,5 +17,9 @@ body {
 }
 
 html{
-    scroll-behavior: smooth;
+    scroll-behavior: smooth;  
 }
+::selection {
+    background-color: #C1946A ; /* Change the background color when text is selected */
+    color: white;  /* Change the text color when text is selected */
+  }
