@@ -5,11 +5,14 @@ import Slider from "react-slick";
 import { restaurants } from '../../assets/data';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faUtensils} from '@fortawesome/free-solid-svg-icons';
-// import {useNavigate} from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 
 
-// const Navigate=useNavigate();
+
+
+
 const RestaurantsSlider = () => {
+  const Navigate= useNavigate() ;
   const settings = {
     dots: true,
     infinite: true,
@@ -44,7 +47,7 @@ const RestaurantsSlider = () => {
     return (totalAvis/ avis.length).toFixed(1);
   };
 
-  const filtredRestaurants = restaurants.filter((restaurant)=>calculateAverageAvis(restaurant.avis)==5 );
+  const filtredRestaurants = restaurants.filter((restaurant)=>calculateAverageAvis(restaurant.avis)>=4.5 );
 
 
   return (
@@ -52,11 +55,19 @@ const RestaurantsSlider = () => {
      <div className="text-left  px-4 py-16 max-sm:px-6 max-lg:px-8 ">
     <p className='text-Lion text-lg underline'>Meilleurs Restaurants De Marseille </p>
     <p className='headline first-letter:text-customBlue '>Restaurants </p>
-    <hr  className='h-2 w-1/2 ' />
-    <h2 className='text-lg '>Découvrez les restaurants les mieux notés de Marseille ! <FontAwesomeIcon icon={faUtensils} className='text-Lion '/> </h2>      
+    <hr  className='h-2 w-1/4 ' />  
+    <div className='flex justify-between items-center max-sm:grid max-sm:gap-10 '>
+    <div>
+
+    <h2 className='text-lg '>Découvrez les restaurants les mieux notés de Marseille ! <FontAwesomeIcon icon={faUtensils} className='text-Lion '/> </h2>          
+    </div>
+    <a href="/Restaurants" className='bg-gray-200 text-Lion px-4 py-2 rounded border-2 border-Lion max-sm:w-fit'>Show All </a>        
+      </div>
+
+  
      </div>
   
-    <div className="container w-11/12 mx-auto  bg-Lion px-10 py-12 bg-Lion">
+    <div className="container w-11/12 mx-auto px-10 py-12 bg-Lion">
       <Slider {...settings}>
         {filtredRestaurants.map((restaurant, index) => {
           const average = calculateAverageAvis(restaurant.avis);
@@ -70,7 +81,7 @@ const RestaurantsSlider = () => {
             <div className='h-40 lg:h-48  bg-gradient-to-t from-gray-50 to-white px-4 pt-4  font-semibold'>
             <p className='text-night'>{restaurant.slogan} </p>
             <button className='text-Lion bg-gray-200 py-4 px-6 rounded-md absolute bottom-6'
-            // onClick={()=>{Navigate(restaurant.path)}}
+            onClick={()=>Navigate(restaurant.path)}
             >Explorer</button>
             </div>
 

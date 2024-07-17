@@ -1,35 +1,157 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import { CategoryParams } from '../../assets/data';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFilter } from '@fortawesome/free-solid-svg-icons';
+import { faArrowLeftRotate } from '@fortawesome/free-solid-svg-icons';
+
 const Cathegory = ({cat}) => {
 
+    const[categoryfilters,setCategoryFilters]=useState([])
+    const[filteredData,setFilteredData]=useState([]);
+    const [Loading,setLoading]=useState(true);
+
     const categoryData = CategoryParams.find((category) => category.name === cat);
+  useEffect(()=>{
+
+        const filtréDonnées =categoryfilters.length>0 ? categoryData.element.filter((item)=>(categoryfilters.includes(item.category))):categoryData.element;
+      setFilteredData(filtréDonnées);        
+
+      return () => {
+  //       // This code runs before the component unmounts or before the effect runs again
+        console.log('Cleanup');
+      };
+
+  },[categoryfilters])
+
+
+    const toggleFilter = (filter) => {
+      if (categoryfilters.includes(filter)) {
+        setCategoryFilters(categoryfilters.filter(f => f !== filter));
+      } else {
+        setCategoryFilters([...categoryfilters, filter]);
+      }
+    };
     
     const averageRating = (i)=>{
        let average = categoryData.element[i].avis ? categoryData.element[i].avis.reduce((total, avis) => total + avis.valeur, 0) / categoryData.element[i].avis.length:"";
-      return average.toFixed(1);
+      return average?average.toFixed(1):"";
     }
   return (
     <>
-    <section className="flex flex-col items-center md:flex-row-reverse md:items-start md:justify-between p-8">
+    <section className=" flex flex-col items-center md:flex-row md:items-start md:justify-between px-4 py-16 max-sm:px-6 max-lg:px-8">
     <div className="md:w-1/3 p-4">
       <img className="w-full h-auto object-cover rounded" src={categoryData.image} alt="eee" />
     </div>
-    <div className="md:w-2/3 p-4 md:pr-8">
-      <h2 className="text-3xl font-semibold mb-4">{categoryData.name}</h2>
+    <div className="md:w-2/3 p-4 md:pl-8">
+      <h2 className="text-3xl font-semibold first-letter:text-customBlue mb-4">{categoryData.name}<hr className='w-2/4 ' /></h2>
+      
       <p className="text-lg">{categoryData.description}</p>
     </div>
   </section>
-  <div>filter</div>
-  <div className="container mx-auto p-4">
+   
+
+      {
+      cat=='Restaurants'?
+      <div className=' relative padding rounded-3xl flex justify-start gap-2 w-11/12 mx-auto border-2 p-3 flex-wrap items-center'> 
+      <span className='absolute top-2 left-2 mb-5 text-Lion underline text-lg'>
+          <FontAwesomeIcon icon={faFilter}  /> Filtrer les resultats 
+           <button className=' mx-4 rounded-xl p-2 px-4 text-white border-2 border-Lion hover:bg-white hover:text-Lion'
+            onClick={()=>setCategoryFilters([])}>
+             <FontAwesomeIcon icon={faArrowLeftRotate} /></button>
+            </span>
+    
+      <button className='border-2 rounded-full border-white p-4 text-white hover:bg-white hover:text-Lion transition-opacity' 
+      onClick={()=>toggleFilter("pizzeria")}
+       >Pizzeria</button>
+
+      <button className='border-2 rounded-full border-white p-4 text-white hover:bg-white hover:text-Lion transition-opacity' 
+      onClick={()=>toggleFilter('tacos')}
+      >Tacos</button>
+      <button className='border-2 rounded-full border-white p-4 text-white hover:bg-white hover:text-Lion transition-opacity' 
+      onClick={()=>toggleFilter('fruit_de_mer')}
+      >Fruit de mer</button>
+      <button className='border-2 rounded-full border-white p-4 text-white hover:bg-white hover:text-Lion transition-opacity' 
+      onClick={()=>
+         toggleFilter("italien")
+      }>Italien Cuisine</button>
+      <button className='border-2 rounded-full border-white p-4 text-white hover:bg-white hover:text-Lion transition-opacity' 
+      onClick={()=>
+        toggleFilter("traditionnelle")
+      }>traditionnelle</button>
+      <button className='border-2 rounded-full border-white p-4 text-white hover:bg-white hover:text-Lion transition-opacity' 
+      onClick={()=>
+        toggleFilter("tropical")
+      }>tropical</button>
+      </div>
+      :(cat=='Nights club')?
+        ""
+       :(cat=='Cafées et biscuitrie')?
+       <div className=' relative padding rounded-3xl flex justify-start gap-2 w-11/12 mx-auto border-2 p-3 flex-wrap items-center'> 
+       <span className='absolute top-2 left-2 mb-5 text-Lion underline text-lg'>
+           <FontAwesomeIcon icon={faFilter}  /> Filtrer les resultats 
+            <button className=' mx-4 rounded-xl p-2 px-4 text-white border-2 border-Lion hover:bg-white hover:text-Lion'
+             onClick={()=>setCategoryFilters([])}>
+              <FontAwesomeIcon icon={faArrowLeftRotate} /></button>
+             </span>
+          <button className='border-2 rounded-full border-white p-4 text-white hover:bg-white hover:text-Lion transition-opacity' 
+      onClick={()=>
+        toggleFilter("Donuts")
+      }>Donuts</button>
+      <button className='border-2 rounded-full border-white p-4 text-white hover:bg-white hover:text-Lion transition-opacity' 
+      onClick={()=>
+        toggleFilter("Biscuitrie")
+      }>Biscuitrie</button>
+       </div>
+       :(cat=='Coiffeurs')?
+        ""
+       :(cat=='Sneakers')?
+       <div className=' relative padding rounded-3xl flex justify-start gap-2 w-11/12 mx-auto border-2 p-3 flex-wrap items-center'> 
+       <span className='absolute top-2 left-2 mb-5 text-Lion underline text-lg'>
+           <FontAwesomeIcon icon={faFilter}  /> Filtrer les resultats 
+            <button className=' mx-4 rounded-xl p-2 px-4 text-white border-2 border-Lion hover:bg-white hover:text-Lion'
+             onClick={()=>setCategoryFilters([])}>
+              <FontAwesomeIcon icon={faArrowLeftRotate} /></button>
+             </span>
+          <button className='border-2 rounded-full border-white p-4 text-white hover:bg-white hover:text-Lion transition-opacity' 
+      onClick={()=>
+        toggleFilter("nettoyage et restauration")
+      }>Nettoyage et Restauration</button>
+
+       </div>
+       :(cat=='Opticiens')?
+       ""
+       :(cat=='Activités')?
+       <div className=' relative padding rounded-3xl flex justify-start gap-2 w-11/12 mx-auto border-2 p-3 flex-wrap items-center'> 
+       <span className='absolute top-2 left-2 mb-5 text-Lion underline text-lg'>
+           <FontAwesomeIcon icon={faFilter}  /> Filtrer les resultats 
+            <button className=' mx-4 rounded-xl p-2 px-4 text-white border-2 border-Lion hover:bg-white hover:text-Lion'
+             onClick={()=>setCategoryFilters([])}>
+              <FontAwesomeIcon icon={faArrowLeftRotate} /></button>
+             </span>
+          <button className='border-2 rounded-full border-white p-4 text-white hover:bg-white hover:text-Lion transition-opacity' 
+      onClick={()=>
+        toggleFilter("cinema")
+      }>Cinéma</button>
+
+       </div>
+       :(cat=='Locations')?
+       ""
+       :""
+
+    }
+      
+
+  <div className="container mx-auto padding">
   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-    {categoryData.element.map((item,i)=>{
+    
+    {filteredData.map((item,i)=>{
       return(
-        <a href={`/${categoryData.path}/${item.nom}`} key={i} className="max-w-sm rounded overflow-hidden shadow-lg">
+        <a href={`/${item.path}`} key={i} className="max-w-sm rounded overflow-hidden shadow-lg bg-white max-sm:w-11/12  max-sm:mx-auto">
       <img className="w-full h-48 object-cover" src={item.images[0]} alt="Restaurant Image"/>
       <div className="px-6 py-4">
         <div className="font-bold text-xl mb-2">{item.nom}</div>
         <p className="text-gray-700 text-base">
-          Téléphone : {item.téléphone}
+           {item.téléphone ?`Téléphone : ${item.téléphone}`:item.adresse ?`Adresse: ${item.adresse}` :""}
         </p>
         <div className="mt-4 flex items-center">
         <span className='text-lg font-semibold'>{averageRating(i)}</span>

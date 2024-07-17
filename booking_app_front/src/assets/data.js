@@ -141,7 +141,8 @@ const  nights_club =[
         ],
         siteweb:"https://lerooftopdesterrasses.com",
         informations_importants:{},
-        path:"Nights-club/LE_ROOFTOP"
+        path:"Nights-club/LE_ROOFTOP",
+        uri:"LE_ROOFTOP"
         
     },
     {
@@ -173,7 +174,8 @@ const  nights_club =[
         ],
         siteweb:"https://sportbeach.fr",
         informations_importants:{},
-        path:"Nights-club/LE_SPORT_BEACH"
+        path:"Nights-club/LE_SPORT_BEACH",
+        uri:"LE_SPORT_BEACH"
 
         
     }
@@ -191,7 +193,8 @@ const sneakers =[
         horaires:"•Lundi——>Samedi📌 •10H——> 19H🕖",
         siteweb:"https://sasgalerie.com",
         informations_importants:{},
-        path:"Sneakers/SAS_GALERIE_SNEAKERS"
+        path:"Sneakers/SAS_GALERIE_SNEAKERS",
+        uri:"SAS_GALERIE_SNEAKERS"
         
     },
     {
@@ -204,7 +207,9 @@ const sneakers =[
         horaires:"du lundi au samedi 11h00-12h15 / 13h15-19h00",
         siteweb:"https://www.latelierdelabasket.com",
         informations_importants:{},
-        path:"Sneakers/L'Atelier_de_la_Basket"
+        path:"Sneakers/L'Atelier_de_la_Basket",
+        uri:"L'Atelier_de_la_Basket",
+        category:'nettoyage et restauration'
 
 
     },
@@ -213,12 +218,13 @@ const sneakers =[
         nom:"OS Sneakers",
         description:"Découvrez les dernières sorties et les baskets les plus exclusives chez OS Sneakers, votre destination incontournable pour tout ce qui concerne les chaussures. Restez à la pointe des tendances avec notre sélection de baskets haut de gamme et authentiques des meilleures marques mondiales.",
         adresse:"📍67 rue Francis davso,13001 Marseille",
-        téléphone:"📞 09.50.37.75.47 📱07.86.38.67.33 ",
+        téléphone:"09.50.37.75.47 | 07.86.38.67.33 ",
         images:[OS1,OS2,OS3,OS4],
         horaires:"",
         siteweb:"",
         informations_importants:{},
-        path:"Sneakers/OS_Sneakers"
+        path:"Sneakers/OS_Sneakers",
+        uri:"OS_Sneakers"
 
     }
 
@@ -248,7 +254,9 @@ const activités = [
           
         ],
         informations_importants :{},
-        path:"Activités/Cinéma_La_Joliette"
+        path:"Activités/Cinéma_La_Joliette",
+        uri:"Cinéma_La_Joliette",
+        category:'cinema'
 
 
     }
@@ -294,7 +302,8 @@ const locations = [
             conditions_de_résérvation:[],
             notes:[]
         },
-        path:"locations/Vita_Loca"
+        path:"locations/Vita_Loca",
+        uri:"Vita_Loca"
     },
     {
         id:2,
@@ -359,7 +368,8 @@ const locations = [
             ]
         
         },
-        path:"locations/Fais_Ta_Loc"
+        path:"locations/Fais_Ta_Loc",
+        uri:"Fais_Ta_Loc"
 
     },
 
@@ -374,7 +384,8 @@ const opticiens = [
         images:[ov_optic1,ov_optic2],
         avis: [],
         résérvation :"http://wa.me/message/SXA7U3LZYWQZO1",
-        path:"Opticiens/Ov_Optic"
+        path:"Opticiens/Ov_Optic",
+        uri:"Ov_Optic"
 
     },
     {
@@ -399,7 +410,8 @@ const opticiens = [
         ],
         horaires:"Horaires :Lun-Jeu: 9h30-19h•Ven: 9h30-14h•Dimanche sur rdv 🗓️ 📝 Examen de vue - ordonnances en 48h ",
         résérvation :"https://vu.fr/BHqde",
-        path:"Opticiens/Au_Bon_Oeil"
+        path:"Opticiens/Au_Bon_Oeil",
+        uri:"Au_Bon_Oeil"
 
 
     }
@@ -436,7 +448,9 @@ const restaurants =[
         ],
         siteweb:"https://www.lerestaurant24.fr",
         informations_importants:{},
-        path:"Restaurants/Restaurant_Le_24"
+        path:"Restaurants/Restaurant_Le_24",
+        uri:"Restaurant_Le_24",
+        category:"fruit_de_mer"
 
 
 
@@ -480,7 +494,9 @@ const restaurants =[
         ], 
         siteweb:"https://vu.fr/xSlT",
         informations_importants:{},
-        path:"Restaurants/the_jungle_marseille"
+        path:"Restaurants/the_jungle_marseille",
+        uri:"the_jungle_marseille",
+        category:"tropical"
 
     },
     {
@@ -517,7 +533,10 @@ const restaurants =[
         ], 
         siteweb:"https://www.sevenrooms.com/reservations/bigmamma/ig?venues=pizzeriapopolarebourse%2Cmammaprimiparis%2Ceastmamma%2Cpinkmamma%2Cobermamma%2Cbigloveparis%2Clibertinoparis%2Cpalatinorestaurant%2Cgiacomomontecarlo%2CCarmelolyon%2Csplendidomarseille%2Cbellezzavieuxlille",
         informations_importants:{},
-        path:"Restaurants/Le_Splendido"
+        path:"Restaurants/Le_Splendido",
+        uri:"Le_Splendido",
+        category:"italien"
+
 
     },
     {
@@ -556,7 +575,9 @@ const restaurants =[
         informations_importants:{
             notes:"Les réservations sont possibles pour les services du MIDI et du SOIR. N’hésitez pas à nous contacter au 07 86 27 11 26. Pour les événements ou les groupes, envoyez nous votre demande par mail à latabledaugustine@gmail.com. Merci et à très vite."
         } ,
-        path:"Restaurants/La_Table_D'augustine"
+        path:"Restaurants/La_Table_D'augustine",
+        uri:"La_Table_D'augustine",
+        category:"traditionnelle"
 
     },
     {
@@ -564,7 +585,7 @@ const restaurants =[
         nom:"Pizzeria L’eau à la bouche",
         slogan:"🍕 Sur place ou à emporter",
         description:"C'est à Marseille, sur la promenade de la Corniche à l'entrée de l'anse de Malmousque, au carrefour d'Endoume, qu'un petit cabanon coloré, pas plus grand qu'un mouchoir de poche, dans le charme d'une habitation marseillaise a été transformée en une pizzeria qui vous séduira par son authenticité. Une terrasse, un étage et 3 tables au comptoir, mais surtout un décor qui amusera aussi bien les petits que les grands.Les pizzas sont à déguster sur place ou à emporter dans le secteur du mardi midi au dimanche soir. Les livraisons sont assurées uniquement en basse saison : du mois d'octobre au mois de mai.Les réservations et commandes sont conseillées et se font uniquement par téléphone au 04.91.52.16.16 Paiements acceptés: CB, chèque avec Carte national d'identité, espèces",
-        adresse:"📍120 corniche kennedy, Marseille, France 13007",
+        adresse:"120 corniche kennedy, Marseille, France 13007",
         téléphone:"04.91.52.16.16",
         prix:"",
         horaires:" Du mardi au dimanche 12h-15h & 18h-23h",
@@ -574,7 +595,9 @@ const restaurants =[
         informations_importants:{
         notes:"Les réservations sont possibles pour les services du MIDI et du SOIR. N’hésitez pas à nous contacter au 07 86 27 11 26. Pour les événements ou les groupes, envoyez nous votre demande par mail à latabledaugustine@gmail.com. Merci et à très vite."
         },
-        path:"Restaurants/Pizzeria_Leau_à_La_Bouche"
+        path:"Restaurants/Pizzeria_Leau_à_La_Bouche",
+        uri:"Pizzeria_Leau_à_La_Bouche",
+        category:"pizzeria"
         
 
     },
@@ -584,7 +607,7 @@ const restaurants =[
         slogan:"🇫🇷Véritable frenchtacos à Marseille 🤙🏼Osez le goût du vrai🤙🏼",
         description:"Découvrez New School Tacos, où tradition et innovation se rencontrent pour offrir des tacos savoureux et uniques. Situé en ville, ce restaurant propose des ingrédients frais et des recettes authentiques pour une expérience culinaire inoubliable.",
         adresse:"📍Marseille 24 rue vacon 13001",
-        téléphone:"📞04.91.72.10.80",
+        téléphone:"04.91.72.10.80",
         prix:"",
         horaires:"",
         images:[newTacos1,newTacos2,newTacos3],
@@ -592,37 +615,39 @@ const restaurants =[
             {
                 utilisateur: "Alice P.",
                 commentaire: "New School Tacos propose les meilleurs tacos de la ville ! Les ingrédients sont toujours frais et les saveurs incroyables. Un vrai régal !",
-                valeur: 5
+                valeur:5
             },
             {
                 utilisateur: "Marc D.",
                 commentaire: "Super expérience chez New School Tacos. Les portions sont généreuses et les recettes sont innovantes. J'y retournerai sans hésiter.",
-                valeur: 4
+                valeur:4
             },
             {
                 utilisateur: "Sophie L.",
                 commentaire: "J'adore ce restaurant ! Les tacos sont délicieux et l'ambiance est conviviale. Le service est rapide et les prix sont raisonnables.",
-                valeur: 5
+                valeur:5
             },
             {
                 utilisateur: "Lucas M.",
                 commentaire: "Très satisfait de ma visite à New School Tacos. Les saveurs sont authentiques et les tacos sont bien garnis. Je recommande vivement !",
-                valeur: 4 
+                valeur:4 
             },
             {
                 utilisateur: "Emma R.",
                 commentaire: "Une découverte fantastique ! Les tacos sont savoureux et variés. Le personnel est accueillant et le cadre est agréable.",
-                valeur: 5
+                valeur:5
             },
             {
                 utilisateur: "Julien B.",
                 commentaire: "New School Tacos est devenu mon endroit préféré pour les tacos. Les ingrédients de qualité et les recettes originales en font un lieu incontournable.",
-                valeur: 5
+                valeur:5
             }
         ],
         siteweb:"https://newschooltacos.fr",
         informations_importants:{},
-        path:"Restaurants/New_School_Tacos_Marseille"
+        path:"Restaurants/New_School_Tacos_Marseille",
+        uri:"New_School_Tacos_Marseille",
+        category:"tacos"
 
 
     },
@@ -632,7 +657,7 @@ const restaurants =[
         slogan:"Pasta Fresca 🍝, pizze 🍕, produits frais de saison , tutto è fatto a mano !",
         description:"Explore the flavors of Italy at Marcella Trattoria, where tradition meets innovation in every dish. Nestled in the heart of [location], our restaurant offers an authentic Italian dining experience with a modern twist. From freshly made pasta to artisanal pizzas and delectable desserts, each bite is a journey through the diverse regions of Italy. Whether you're enjoying a romantic dinner for two or hosting a special celebration, Marcella Trattoria promises an unforgettable culinary experience infused with passion and flavor.",
         adresse:"📍1140 rue andré ampère, place Actimart, Aix-en-Provence, France 13290",
-        téléphone:"📞04 12 20 03 05",
+        téléphone:"04 12 20 03 05",
         prix:"",
         horaires:"Ouvert du lundi au vendredi midi.",
         images:[marcela1,marcela2,marcela3,marcela4,marcela5],
@@ -650,7 +675,8 @@ const restaurants =[
         ],
         siteweb:"",
         informations_importants:{},
-        path:"Restaurants/Marcella_Trattoria"
+        path:"Restaurants/Marcella_Trattoria",
+        uri:"Marcella_Trattoria"
 
 
     }
@@ -701,7 +727,8 @@ const coiffeurs = [
             ],
             siteweb:"https://www.latelierzaidi.com/access-contact",
             informations_importants:{},
-            path:"Coiffeurs/L'atelier_de_Zaidi"
+            path:"Coiffeurs/L'atelier_de_Zaidi",
+            uri:"L'atelier_de_Zaidi",
 
 
 
@@ -714,14 +741,16 @@ const cafées_et_biscuitrie = [
         nom:" DONUTS COFFEE à Marseille ",
         description:"Atmosphère conviviale et personnel accueillant, idéal pour une pause café",
         adresse:"📍: 9 Quai de la Joliette, 13002 Marseille",
-        téléphone:"📞04.91.72.10.80",
+        téléphone:"04.91.72.10.80",
         horaires:" Ouvert 7/7 - 10h/02h",
         prix:"prix unitaire de 2 EUR à 9 EUR ",
         images:[donut1,donut2,donut3],
         avis:[],
         siteweb:"https://linktr.ee/DonutsCoffee.fr",
         informations_importants:{},
-        path:"Cafées-et-biscuitrie/DONUTS_COFFEE_à_Marseille"
+        path:"Cafées-et-biscuitrie/DONUTS_COFFEE_à_Marseille",
+        uri:"DONUTS_COFFEE_à_Marseille",
+        category:'Donuts'
     },
     {
         id:2,
@@ -735,8 +764,10 @@ const cafées_et_biscuitrie = [
         avis:[],
         siteweb:"https://le-grand-pastis.com/180-la-biscuiterie-tradition-endoume-marseille",
         informations_importants:{},
-        path:"Cafées-et-biscuitrie/180_Biscuitrie_Arisanale"
-
+        path:"Cafées-et-biscuitrie/180_Biscuitrie_Arisanale",
+        uri:"180_Biscuitrie_Arisanale",
+        category:'Biscuitrie'
+        
 
     }
 

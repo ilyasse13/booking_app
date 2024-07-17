@@ -6,7 +6,7 @@ import { nights_club,sneakers,activités,restaurants,locations,coiffeurs,cafées
 import { calculateAverageAvis } from '../../assets/data';
 
 const Hero = () => {
-    const [focus,setFocus]=useState(false);
+    const [message,setMessage]=useState(false);
     const [searchQuery, setSearchQuery] = useState('');
     const [isPopupVisible, setIsPopupVisible] = useState(false);
     const [data,setData] = useState([...nights_club,...sneakers,...activités,...restaurants,...locations,...coiffeurs,...cafées_et_biscuitrie,...opticiens]);
@@ -22,7 +22,10 @@ const Hero = () => {
 
   
     const handleSearchClick = () => {
-      setIsPopupVisible(true);
+      searchQuery.trim()!="" 
+      ?setIsPopupVisible(true):setMessage(true);
+      
+      
     };
   
     const closePopup = () => {
@@ -59,7 +62,7 @@ const Hero = () => {
     }, [imagesWithContent.length]);
 
     return (
-        <div className='bg-gradient-to-b from-gray-400 to-gray-100-to-white px-2 max-sm:px-0'>
+        <div className='px-2 max-sm:px-0 mb-20'>
         <div
               className="w-11/12 max-sm:w-full mx-auto  bg-cover bg-center grid items-center max-sm:items-start justify-center text-white text-center  "
               style={{ backgroundImage: `url(${imagesWithContent[currentIndex].img})`,height: "90vh" }}
@@ -68,29 +71,33 @@ const Hero = () => {
                 <h1 className=" text-3xl font-extrabold sm:text-5xl  py-10 text-white w-fit mx-auto  first-letter:text-customBlue  px-0">Marseille</h1>
                 <p className="font-extrabold max-sm:block text-xl w-8/12 mx-auto  rounded-2xl text-white pb-12  ">{imagesWithContent[currentIndex].content}</p>
               <div className="container mx-auto p-4">
-               <p className=' text-lg cursor-pointer font-semibold text-white' >Chercher Destinations ?</p>
-                <div className='flex justify-center bg-Lion w-fit p-6 mx-auto max-sm:grid sm:justify-items-center max-sm:border-white max-sm:border-2'>
+                <div className='flex justify-center bg-white rounded-full w-fit mx-auto  border-2 border-night '>
                     <input  
                       autoFocus               
                       type="text"
                       placeholder="Chercher Destinations"
-                      className="border border-Lion p-2 mb-4  rounded text-black"
+                      // className="border border-Lion p-2 mb-4  rounded text-black"
+                     className=" outline-none p-2 pt-2  rounded-full text-black  "
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
                     />
                     <button
                       onClick={handleSearchClick}
-                      className="bg-Lion text-white px-4 py-2 rounded h-11 border-2 border-white max-sm:text-Lion max-sm:bg-white max-sm:border-night"
+                      className=" py-2 px-4 border-2 border-Lion bg-white text-Lion rounded-full m-2 hover:text-white hover:bg-Lion transition-colors "
                     >
                       <FontAwesomeIcon icon={faMagnifyingGlass} />
-                    </button>                    
-                </div>
-                   
+                    </button> 
+
+                </div> 
+                {message &&
+                      <p className='text-night bg-white my-2 w-52 mx-auto text-md font-sansBody capitalize cursor-pointer'
+                      onClick={()=>setMessage(false)}> entrer des mot clés avant de lancer la recherche !</p>
+                }   
 
                     {isPopupVisible && (
                       <div
                        className="z-50 fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-                        <div className=" bg-white p-6  rounded-lg shadow-lg  text-night w-3/4  mx-20 max-sm:mx-0 h-3/4 overflow-y-scroll relative max-sm:w-full ">
+                        <div className=" bg-customBlue p-6  rounded-lg shadow-lg  text-white w-3/4  mx-20 max-sm:mx-0 h-3/4 overflow-y-scroll relative max-sm:w-full ">
                           <button
                             onClick={closePopup}
                             className="absolute  top-0 right-0 mt-2 mr-2 text-black  text-3xl border-2 border-black px-2 "
@@ -106,7 +113,7 @@ const Hero = () => {
                                const reviewsAverage =  item.avis?calculateAverageAvis(item.avis):"";
                                 
                                 return(
-                                <div key={item.id} className="relative text-lg  rounded-lg flex gap-4  border-2 border-customBlue overflow-hidden w-96  max-sm:grid  p-4">
+                                <div key={item.id} className="relative text-lg  rounded-lg flex gap-4  overflow-hidden w-96  max-sm:grid  p-4 border-2 border-opacity-10 border-black">
                                  
                                  <img src={item.images[0]} className=' w-20 h-21  md:h-16 md:w-16 max-sm:w-80 mx-auto ' />
                                  <div>
@@ -118,10 +125,11 @@ const Hero = () => {
                                  {item.téléphone ?<p className='font-semibold text-left font-sansBody '><FontAwesomeIcon icon={faPhone}/>: {item.téléphone}</p>:"" }
                                 </div>
                                   <a href={item.path} className='bg-black text-white px-2 py-3 rounded-md cursor-pointer m-auto'>Visiter</a>
+                                  <hr />
                                 </div>
                               )})
                             ) : (
-                              <p className='mx-auto mt-10 text-red-600 text-lg'> No results found !</p>
+                              <p className='mx-auto mt-10 text-white text-lg'></p>
                             )}                            
                           </div>
                            

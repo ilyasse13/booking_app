@@ -11,7 +11,7 @@ const HomeComponent1 = () => {
 const Navigate=useNavigate();
 
   return (
-    <div className='bg-gray-100 items-center justify-center p-6 mt-0 max-sm:mt-0 md:mt-20 lg:mt-60 xl:mt-20 ' id='top_destinations'>
+    <div className=' items-center justify-center p-6 mt-0 max-sm:mt-0 md:mt-20 lg:mt-60 xl:mt-20 ' id='top_destinations'>
         <div className='text-left  px-4 py-16 max-sm:px-6 max-lg:px-8 '>
             <p className='text-Lion text-lg font-sansTitle underline text-left' >Qu'est ce que vous cherchez ?</p>
              <h1 className='headline     first-letter:text-customBlue'>Meilleurs Destinations</h1>
@@ -22,13 +22,13 @@ const Navigate=useNavigate();
              </p>            
         </div>
 
-        <div className='grid grid-cols-10 grid-rows-5 gap-6 h-screen w-full pt-10 max-md:grid-cols-4  max-md:grid-rows-8  px-4 py-16 max-sm:px-6 max-lg:px-8 /'>
+        <div className='grid grid-cols-10 grid-rows-5 gap-6 h-screen w-full pt-10 max-md:grid-cols-4  max-md:grid-rows-10  px-4 py-16 max-sm:px-6 max-lg:px-8 /'>
 
             <div  
             onClick={()=>Navigate(TopDestinations[0].URI)}
             className=' max-md:col-span-2 max-md:row-span-2   col-span-4 row-span-3 bg-night rounded-3xl relative bg-cover bg-center overflow-hidden transition-transform duration-1000 ease-in-out transform hover:scale-90 '  
                 style={{backgroundImage: `url(${TopDestinations[0].img})`}} >
-                <p className='font-dancing text-2xl font-extrabold  text-beige absolute inset-0 bg-black bg-opacity-20   flex items-center justify-center rounded-3xl cursor-pointer hover:bg-transparent hover:text-night'>{TopDestinations[0].name}</p>
+                <p className='font-dancing text-2xl font-extrabold  text-beige absolute inset-0 bg-black bg-opacity-20   flex items-center justify-center rounded-3xl cursor-pointer hover:bg-transparent hover:text-night hover:bg-white hover:bg-opacity-50'>{TopDestinations[0].name}</p>
             </div>
 
 
