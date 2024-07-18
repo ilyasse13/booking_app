@@ -15,6 +15,7 @@ import Sneakers from "./Pages/Sneakers/Sneakers";
 import Cathegory from "./Pages/Cathegory/Cathegory";
 import Opticien from "./Pages/Opticiens/Opticiens";
 import Location from "./Pages/Locations/Location";
+ import Appartement from './Pages/Appartement/Appartement';
 
 export const router = createBrowserRouter([
     {
@@ -92,6 +93,10 @@ export const router = createBrowserRouter([
              {
               path:"/Sneakers/:uri",
               element:<Sneakers />
+             },
+             {
+              path:"/hébergements/:uri",
+              element:<Appartement />
              },
              {
               path:"*",

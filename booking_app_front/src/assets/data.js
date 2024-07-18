@@ -235,7 +235,7 @@ const activités = [
         id:1,
         nom :" Cinéma La Joliette",
         slogan:"Cinéma",
-        description:"",
+        description:"Discover the vibrant and innovative experience at Cinéma La Joliette, located in the heart of Marseille, France. This cinema is a true masterpiece of modern design, featuring a unique and colorful seating arrangement that enhances your movie-watching experience. With its playful mix of bean bags, comfortable cushioned chairs, and a dynamic color scheme, Cinéma La Joliette creates an inviting and cozy atmosphere for all visitors. The cinema offers a diverse selection of films, ranging from the latest blockbusters to independent and international features. Whether you are a cinephile or just looking for a fun night out, Cinéma La Joliette caters to all tastes and preferences. Its strategic location in Marseille makes it easily accessible, allowing you to explore the vibrant culture and attractions of the city before or after your movie. Cinéma La Joliette is not just a place to watch films; it’s a destination where creativity, comfort, and entertainment come together for an unforgettable cinematic experience. Come and enjoy the magic of movies in a setting that is as captivating as the films themselves at Cinéma La Joliette.",
         adresse:"54 rue de Chanterac 13002 en France à Marseille",
         téléphone: "",
         prix:"",
@@ -593,7 +593,7 @@ const restaurants =[
         avis: [], 
         siteweb:"https://pizzerialeaualabouche.fr",
         informations_importants:{
-        notes:"Les réservations sont possibles pour les services du MIDI et du SOIR. N’hésitez pas à nous contacter au 07 86 27 11 26. Pour les événements ou les groupes, envoyez nous votre demande par mail à latabledaugustine@gmail.com. Merci et à très vite."
+        notes:"Les réservations sont possibles pour les services du MIDI et du SOIR. Merci et à très vite."
         },
         path:"Restaurants/Pizzeria_Leau_à_La_Bouche",
         uri:"Pizzeria_Leau_à_La_Bouche",
@@ -676,7 +676,8 @@ const restaurants =[
         siteweb:"",
         informations_importants:{},
         path:"Restaurants/Marcella_Trattoria",
-        uri:"Marcella_Trattoria"
+        uri:"Marcella_Trattoria",
+        category:'italien'
 
 
     }

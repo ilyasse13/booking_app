@@ -60,25 +60,25 @@ const Cathegory = ({cat}) => {
              <FontAwesomeIcon icon={faArrowLeftRotate} /></button>
             </span>
     
-      <button className='border-2 rounded-full border-white p-4 text-white hover:bg-white hover:text-Lion transition-opacity' 
+      <button className={categoryfilters.includes('pizzeria')?'font-bold border-2 rounded-full border-white p-4 bg-white text-Lion transition-opacity':'border-2 rounded-full border-white p-4 text-white transition-opacity hover:bg-white hover:text-Lion'} 
       onClick={()=>toggleFilter("pizzeria")}
        >Pizzeria</button>
 
-      <button className='border-2 rounded-full border-white p-4 text-white hover:bg-white hover:text-Lion transition-opacity' 
+      <button className={categoryfilters.includes('tacos')?'font-bold border-2 rounded-full border-white p-4 bg-white text-Lion transition-opacity':'border-2 rounded-full border-white p-4 text-white transition-opacity hover:bg-white hover:text-Lion'} 
       onClick={()=>toggleFilter('tacos')}
       >Tacos</button>
-      <button className='border-2 rounded-full border-white p-4 text-white hover:bg-white hover:text-Lion transition-opacity' 
+      <button className={categoryfilters.includes('fruit_de_mer')?'font-bold border-2 rounded-full border-white p-4 bg-white text-Lion transition-opacity':'border-2 rounded-full border-white p-4 text-white transition-opacity hover:bg-white hover:text-Lion'} 
       onClick={()=>toggleFilter('fruit_de_mer')}
       >Fruit de mer</button>
-      <button className='border-2 rounded-full border-white p-4 text-white hover:bg-white hover:text-Lion transition-opacity' 
+      <button className={categoryfilters.includes('italien')?'font-bold border-2 rounded-full border-white p-4 bg-white text-Lion transition-opacity':'border-2 rounded-full border-white p-4 text-white transition-opacity hover:bg-white hover:text-Lion'} 
       onClick={()=>
          toggleFilter("italien")
       }>Italien Cuisine</button>
-      <button className='border-2 rounded-full border-white p-4 text-white hover:bg-white hover:text-Lion transition-opacity' 
+      <button className={categoryfilters.includes('traditionnelle')?'font-bold border-2 rounded-full border-white p-4 bg-white text-Lion transition-opacity':'border-2 rounded-full border-white p-4 text-white transition-opacity hover:bg-white hover:text-Lion'} 
       onClick={()=>
         toggleFilter("traditionnelle")
       }>traditionnelle</button>
-      <button className='border-2 rounded-full border-white p-4 text-white hover:bg-white hover:text-Lion transition-opacity' 
+      <button className={categoryfilters.includes('tropical')?'font-bold border-2 rounded-full border-white p-4 bg-white text-Lion transition-opacity':'border-2 rounded-full border-white p-4 text-white transition-opacity hover:bg-white hover:text-Lion'} 
       onClick={()=>
         toggleFilter("tropical")
       }>tropical</button>
@@ -93,11 +93,11 @@ const Cathegory = ({cat}) => {
              onClick={()=>setCategoryFilters([])}>
               <FontAwesomeIcon icon={faArrowLeftRotate} /></button>
              </span>
-          <button className='border-2 rounded-full border-white p-4 text-white hover:bg-white hover:text-Lion transition-opacity' 
+          <button className={categoryfilters.includes('Donuts')?'font-bold border-2 rounded-full border-white p-4 bg-white text-Lion transition-opacity':'border-2 rounded-full border-white p-4 text-white transition-opacity hover:bg-white hover:text-Lion'} 
       onClick={()=>
         toggleFilter("Donuts")
       }>Donuts</button>
-      <button className='border-2 rounded-full border-white p-4 text-white hover:bg-white hover:text-Lion transition-opacity' 
+      <button className={categoryfilters.includes('Biscuitrie')?'font-bold border-2 rounded-full border-white p-4 bg-white text-Lion transition-opacity':'border-2 rounded-full border-white p-4 text-white transition-opacity hover:bg-white hover:text-Lion'} 
       onClick={()=>
         toggleFilter("Biscuitrie")
       }>Biscuitrie</button>
@@ -112,7 +112,7 @@ const Cathegory = ({cat}) => {
              onClick={()=>setCategoryFilters([])}>
               <FontAwesomeIcon icon={faArrowLeftRotate} /></button>
              </span>
-          <button className='border-2 rounded-full border-white p-4 text-white hover:bg-white hover:text-Lion transition-opacity' 
+          <button className={categoryfilters.includes('nettoyage et restauration')?'font-bold border-2 rounded-full border-white p-4 bg-white text-Lion transition-opacity':'border-2 rounded-full border-white p-4 text-white transition-opacity hover:bg-white hover:text-Lion'} 
       onClick={()=>
         toggleFilter("nettoyage et restauration")
       }>Nettoyage et Restauration</button>
@@ -128,7 +128,7 @@ const Cathegory = ({cat}) => {
              onClick={()=>setCategoryFilters([])}>
               <FontAwesomeIcon icon={faArrowLeftRotate} /></button>
              </span>
-          <button className='border-2 rounded-full border-white p-4 text-white hover:bg-white hover:text-Lion transition-opacity' 
+          <button className={categoryfilters.includes('cinema')?'font-bold border-2 rounded-full border-white p-4 bg-white text-Lion transition-opacity':'border-2 rounded-full border-white p-4 text-white transition-opacity hover:bg-white hover:text-Lion'} 
       onClick={()=>
         toggleFilter("cinema")
       }>Cinéma</button>
