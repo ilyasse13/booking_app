@@ -22,6 +22,10 @@ import {
 } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
+import { useTranslation } from 'react-i18next';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { FaFlag } from 'react-icons/fa';
+import { faGlobe } from '@fortawesome/free-solid-svg-icons';
 
 
 
@@ -31,18 +35,18 @@ import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 
 export default function Header() {
   const [isLangOpen, setIsLangOpen] = useState(false);
-
+  const [langue,setLangue]=useState();
   const toggleLangMenu = () => {
     setIsLangOpen(!isLangOpen);
   };
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const [langue, setLangue] = useState(localStorage.getItem("langue") ?? "FR");
-  const handleLanguageChange = (newLangue) => {
-    localStorage.setItem("langue", newLangue);
-    setLangue(localStorage.getItem("langue"))
-    console.log('langue changed to :', newLangue);
-    window.location.reload();
-  };
+
+    const { i18n } = useTranslation();
+  
+    const changeLanguage = (lng) => {
+
+      i18n.changeLanguage(lng);
+    };
 
   return (
     <header className="bg-customBlue text-white">
@@ -86,7 +90,7 @@ export default function Header() {
             <Menu as="div" className="relative inline-block ml-3 text-left">
               <div>
                 <MenuButton className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-customBlue text-white px-3 py-2 text-sm font-semibold shadow-sm ring-1 ring-inset ring-gray-300">
-                  {langue}
+                  <FontAwesomeIcon icon={faGlobe} />
                   <ChevronDownIcon className="-mr-1 h-5 w-5 text-gray-400" aria-hidden="true" />
                 </MenuButton>
               </div>
@@ -96,19 +100,25 @@ export default function Header() {
                 className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 transition focus:outline-none data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-75 data-[enter]:ease-out data-[leave]:ease-in"
               >
                 <div className="py-1">
-                  <button onClick={() => { handleLanguageChange("FR") }} className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                  <button onClick={(event) => changeLanguage('fr')}
+                  className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                     Français
                   </button>
-                  <button onClick={() => { handleLanguageChange("EN") }} className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                  <button onClick={() => changeLanguage('en')} className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                     English
                   </button>
-                  <button onClick={() => { handleLanguageChange("ES") }} className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                  <button onClick={() => changeLanguage('es')} className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                     Español
                   </button>
                 </div>
               </MenuItems>
 
             </Menu>
+            {/* <select name="langue" className='text-black'> */}
+              {/* <button value="fr"  defaultChecked onClick={()=>changeLanguage("fr")} className=' bg-yellow-300 p-4 text-green-500 m-4'>français</button>
+              <button value="en" onClick={()=>changeLanguage("en")}className=' bg-yellow-300 p-4 text-green-500 m-4'>englais</button>
+              <button value="es" onClick={()=>changeLanguage("es")}className=' bg-yellow-300 p-4 text-green-500 m-4'>espagnol</button> */}
+            {/* </select> */}
           </div>
 
         </div>
@@ -170,19 +180,19 @@ export default function Header() {
                 {isLangOpen && (
                   <div className="mt-2 space-y-2">
                     <button
-                      onClick={() => setLangue("FR")}
+                      onClick={() => changeLanguage('fr')}
                       className="w-full text-left px-4 py-2 text-sm text-gray-900 bg-white hover:bg-gray-100"
                     >
                       Français
                     </button>
                     <button
-                      onClick={() => setLangue("EN")}
+                      onClick={() => changeLanguage("en")}
                       className="w-full text-left px-4 py-2 text-sm text-gray-900 bg-white hover:bg-gray-100"
                     >
                       English
                     </button>
                     <button
-                      onClick={() => setLangue("ES")}
+                      onClick={() => changeLanguage("es")}
                       className="w-full text-left px-4 py-2 text-sm text-gray-900 bg-white hover:bg-gray-100"
                     >
                       Español

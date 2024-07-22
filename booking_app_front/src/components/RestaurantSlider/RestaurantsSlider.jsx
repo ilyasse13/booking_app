@@ -2,16 +2,19 @@ import React from 'react'
 import 'slick-carousel/slick/slick.css'; 
 import 'slick-carousel/slick/slick-theme.css';
 import Slider from "react-slick";
-import { restaurants } from '../../assets/data';
+// import { restaurants } from '../../assets/data';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faUtensils} from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 
 
 
 
 const RestaurantsSlider = () => {
+  const {t} = useTranslation();
+  const restaurants = t('restaurants',{returnObjects:true})
   const Navigate= useNavigate() ;
   const settings = {
     dots: true,
@@ -53,15 +56,15 @@ const RestaurantsSlider = () => {
   return (
     <div className="padding ">
      <div className="text-left  px-4 py-16 max-sm:px-6 max-lg:px-8 ">
-    <p className='text-Lion text-lg underline'>Meilleurs Restaurants De Marseille </p>
-    <p className='headline first-letter:text-customBlue '>Restaurants </p>
+    <p className='text-Lion text-lg underline'>{t('best_restaurants')} </p>
+    <p className='headline first-letter:text-customBlue '>{t('Restaurants')} </p>
     <hr  className='h-2 w-1/4 ' />  
     <div className='flex justify-between items-center max-sm:grid max-sm:gap-10 '>
     <div>
 
-    <h2 className='text-lg '>Découvrez les restaurants les mieux notés de Marseille ! <FontAwesomeIcon icon={faUtensils} className='text-Lion '/> </h2>          
+    <h2 className='text-lg '>{t('slider_title')}<FontAwesomeIcon icon={faUtensils} className='text-Lion '/> </h2>          
     </div>
-    <a href="/Restaurants" className='bg-gray-200 text-Lion px-4 py-2 rounded border-2 border-Lion max-sm:w-fit'>Show All </a>        
+    <a href="/Restaurants" className='bg-gray-200 text-Lion px-4 py-2 rounded border-2 border-Lion max-sm:w-fit'>{t('slider_button')} </a>        
       </div>
 
   
@@ -82,7 +85,7 @@ const RestaurantsSlider = () => {
             <p className='text-night'>{restaurant.slogan} </p>
             <button className='text-Lion bg-gray-200 py-4 px-6 rounded-md absolute bottom-6'
             onClick={()=>Navigate(restaurant.path)}
-            >Explorer</button>
+            >{t('explore')}</button>
             </div>
 
 

@@ -2,8 +2,11 @@ import React from 'react'
 import homeComponentImg from '../../assets/travelPicture1.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faBookOpen} from '@fortawesome/free-solid-svg-icons';
+import { useTranslation } from 'react-i18next';
 
 const HomeComponent2 = () => {
+  const {t}=useTranslation();
+  
   return (
     
     <section>
@@ -26,24 +29,21 @@ const HomeComponent2 = () => {
        
 
         <div className="p-8 sm:p-16 lg:p-24">
-          <p className='text-Lion text-lg font-sansTitle underline' >à Propos de Nous</p> 
+          <p className='text-Lion text-lg font-sansTitle underline' >{t('comp2_about_us')}</p> 
            <h2 className="headline sm:text-3xl  first-letter:text-customBlue font-sansTitle ">
-          Découvrez la meilleure destination à Marseille
+          {t('comp2_title')}
           </h2>
           <hr />
 
           <p className="mt-4 text-night font-medium font-sansBody">
-           Ce site est conçu pour vous aider à trouver votre destination idéale, que vous soyez un visiteur pour la première fois ou un habitué de la ville. Grâce à nos recommandations détaillées et à nos conseils d'experts, vous pourrez explorer les trésors cachés de Marseille et profiter pleinement de votre séjour.
-            Naviguez facilement à travers les différentes options de loisirs,
-             de restauration et de visites culturelles pour planifier votre voyage parfait.
-              Laissez-nous être votre guide dans cette magnifique ville méditerranéenne. <FontAwesomeIcon icon={faBookOpen} className='text-Lion' />
+           {t('comp2_paragraph')} <FontAwesomeIcon icon={faBookOpen} className='text-Lion' />
           </p>
 
           <a
             href="#top_destinations"
             className="mt-8 inline-block rounded border border-customBlue bg-customBlue px-12 py-3 text-sm font-medium text-beige hover:bg-transparent hover:text-customBlue focus:outline-none focus:ring active:text-beige active:bg-customBlue cursor-pointer transition-transform duration-300 ease-in-out hover:transform hover:scale-90 hover:delay-200"
           >
-            Meilleur Destination 
+            {t('comp2_button')} 
           </a>
         </div>
       </div>

@@ -86,7 +86,7 @@ import sportbeach3 from './sportbeach3.jpg'
 import sportbeach4 from './sportbeach4.jpg'
 import hotels from './hotels.jpg'
 
-
+ 
 const calculateAverageAvis = (avis) => {
 
     let totalAvis = 0;
@@ -181,7 +181,6 @@ const  nights_club =[
     }
 
     ];
-
 const sneakers =[
     {
         id:1,
@@ -194,7 +193,14 @@ const sneakers =[
         siteweb:"https://sasgalerie.com",
         informations_importants:{},
         path:"Sneakers/SAS_GALERIE_SNEAKERS",
-        uri:"SAS_GALERIE_SNEAKERS"
+        uri:"SAS_GALERIE_SNEAKERS",
+        avis:[
+            {
+                utilisateur:'Mauris_H',
+                commentaire:'le magasin est riches des modéles et moderne , je Like ',
+                valeur:5
+            }
+        ]
         
     },
     {
@@ -209,7 +215,19 @@ const sneakers =[
         informations_importants:{},
         path:"Sneakers/L'Atelier_de_la_Basket",
         uri:"L'Atelier_de_la_Basket",
-        category:'nettoyage et restauration'
+        category:'nettoyage et restauration',
+        avis:[
+            {
+                utilisateur:'Lilia',
+                commentaire:'j\'ai nettoyé mon spadrille chez ce magasin , le resultat étais incroyable ',
+                valeur:5
+            },
+            {
+                utilisateur:'Adam_B',
+                commentaire:' trés belle magasin des Sneakers  ',
+                valeur:4
+            }
+        ]
 
 
     },
@@ -224,12 +242,20 @@ const sneakers =[
         siteweb:"",
         informations_importants:{},
         path:"Sneakers/OS_Sneakers",
-        uri:"OS_Sneakers"
+        uri:"OS_Sneakers",
+        avis:[
+            {
+                utilisateur:'Ilyas_L',
+                commentaire:'j\'ai trouvé chz cette magasin les dernières sorties et mes préfèrés spadrille sneakers ',
+                valeur:5
+
+            }
+        ]
+
 
     }
 
 ];
-
 const activités = [
     {
         id:1,
@@ -408,7 +434,7 @@ const opticiens = [
             }
         
         ],
-        horaires:"Horaires :Lun-Jeu: 9h30-19h•Ven: 9h30-14h•Dimanche sur rdv 🗓️ 📝 Examen de vue - ordonnances en 48h ",
+        horaires:" :Lun-Jeu: 9h30-19h•Ven: 9h30-14h•Dimanche sur rdv 🗓️ 📝 Examen de vue - ordonnances en 48h ",
         résérvation :"https://vu.fr/BHqde",
         path:"Opticiens/Au_Bon_Oeil",
         uri:"Au_Bon_Oeil"
@@ -420,11 +446,9 @@ const opticiens = [
 const restaurants =[
     {
         id:1,
-        nom:" restaurant le 24",
+        "nom":" restaurant le 24",
         slogan:"Spécialités de homard, poissons et fruits de mer",
         description:"Notre restaurant le 24 vous accueille dans un cadre agréable pour déguster des plats de haute qualité. Spécialisés en cuisine française revisitée, nous vous proposons des menus variés, remodelés de façon saisonnière, inspirés des tendances culinaires des 5 continents.",
-        adresse:" 24 rue falque 13006 marseille",
-        téléphone:"06.58.06.92.40",
         prix:"Prix moyen 39 €",
         horaires:"Mar-vend :12H-15H & 19H -23H Ven & Sam jusqu’à 00:00",
         images:[Restau241,Restau242,Restau243,Restau244,Restau245],
@@ -446,7 +470,6 @@ const restaurants =[
             }
 
         ],
-        siteweb:"https://www.lerestaurant24.fr",
         informations_importants:{},
         path:"Restaurants/Restaurant_Le_24",
         uri:"Restaurant_Le_24",
@@ -746,7 +769,18 @@ const cafées_et_biscuitrie = [
         horaires:" Ouvert 7/7 - 10h/02h",
         prix:"prix unitaire de 2 EUR à 9 EUR ",
         images:[donut1,donut2,donut3],
-        avis:[],
+        avis:[
+            {
+                utilisateur:'Mark_R',
+                commentaire:'It was one of the best Donuts i\'ve ever taste ',
+                valeur:5
+            },            
+            {
+                utilisateur:'Linda_B',
+                commentaire:'l\espace etais trés calme et le serveurs sont trés gentils , I Love the place and the Donut <3 !  ',
+                valeur:4
+            }
+        ],
         siteweb:"https://linktr.ee/DonutsCoffee.fr",
         informations_importants:{},
         path:"Cafées-et-biscuitrie/DONUTS_COFFEE_à_Marseille",
@@ -762,7 +796,18 @@ const cafées_et_biscuitrie = [
         horaires:" Du mardi au samedi :8h30-13h et 16h-19h30 Dim : 9h-13h",
         prix:"pas Identifié ",
         images:[biscuit1,biscuit2,biscuit3],
-        avis:[],
+        avis:[
+            {
+                utilisateur:'Jean_D',
+                commentaire:" ",
+                valeur:4
+            },
+            {
+                utilisateur:'Lukas_S',
+                commentaire:' the cookies and cakes were so good ,friendly people i\'ll visit them again when back to Marseille',
+                valeur:5
+            }
+        ],
         siteweb:"https://le-grand-pastis.com/180-la-biscuiterie-tradition-endoume-marseille",
         informations_importants:{},
         path:"Cafées-et-biscuitrie/180_Biscuitrie_Arisanale",
@@ -903,3 +948,5 @@ const CategoryParams=[
 ]
 
 export {CategoryParams,nights_club,sneakers,activités,restaurants,locations,coiffeurs,cafées_et_biscuitrie,opticiens,TopDestinations,calculateAverageAvis};
+ export {vespa1, vespa2, vespa3, vitaloca_vespa3, vitaloca_vespa2, vitaloca_vespa1, ov_optic1, ov_optic2, au_bon_oeil5, au_bon_oeil1, au_bon_oeil2, au_bon_oeil3, au_bon_oeil4, Restau241, Restau242, Restau243, Restau244, Restau245, jungle1, jungle2, jungle3, jungle4, jungle5, jungle6, splendido1, splendido2, splendido3, splendido4, splendido5, splendido6, latable1, latable2, latable3, latable4, leaudanslabouche1, leaudanslabouche2, leaudanslabouche3, leaudanslabouche4, barber1, barber2, barber3, barber4, barber5, rooftop1, rooftop2, rooftop3, rooftop4, rooftop5, rooftop6, rooftop7, rooftop8, sasgalerie1, sasgalerie2, sasgalerie3, sasgalerie4, basket1, basket2, basket3, basket4, basket5, basket6, OS1, OS2, OS3, OS4, newTacos1, newTacos2, newTacos3, donut1, donut2, donut3, biscuit1, biscuit2, biscuit3, marcela1, marcela2, marcela3, marcela4, marcela5, cinema1, cinema2, cinema3, sportbeach1, sportbeach2, sportbeach3,
+     sportbeach4, hotels}

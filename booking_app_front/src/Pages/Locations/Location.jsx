@@ -1,13 +1,17 @@
 import React ,{useState}from 'react'
-import { locations } from '../../assets/data';
+// import { locations } from '../../assets/data';
 import { useParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLink } from '@fortawesome/free-solid-svg-icons';
+import { faArrowAltCircleUp } from '@fortawesome/free-solid-svg-icons';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { useTranslation } from 'react-i18next';
 
 const Location = () => {
-    const {uri}= useParams()
-    const location=locations.find((loc)=>loc.uri==uri)
+
+    const {t}= useTranslation();
+    const locations=t('locations',{returnObjects:true});
+    const {uri}= useParams();
+    const location=locations.find((loc)=>loc.uri==uri);
     const[activeImage,setActiveImage]=useState(location.images[0]);
 
     const [reservationData, setReservationData] = useState({
@@ -68,7 +72,7 @@ const Location = () => {
 
            <div className="mb-10">
            <div className=' padding w-full text-night font-sansBody font-semibold'>
-            <strong className='text-lg font-bold  xl:headline'>Description :</strong> <p className=" px-6  text-left  "> {location.description}</p>
+            <strong className='text-lg font-bold  xl:headline'>{t('description_title')}:</strong> <p className=" px-6  text-left  "> {location.description}</p>
 
            </div>
             <div className={` my-12 mx-auto md:w-8/12 xl:w-6/12 overflow-hidden xl:padding`}>
@@ -78,14 +82,14 @@ const Location = () => {
                onSubmit={handleSubmit}
                className=' w-full xl:flex-1  flex flex-col gap-2'
              >
-               <h3 className='text-lg font-bold  xl:headline text-left  '>Formulaire de Réservation : </h3>
+               <h3 className='text-lg font-bold  xl:headline text-left  '>{t('form_title')} </h3>
 
                  <input
                    type='text'
                    name='name'
                    value={reservationData.name}
                    onChange={handleChange}
-                   placeholder="Nom complet "
+                   placeholder={t('form_name_placeholder')}
                    className='focus:ring-2  bg-tertiary py-2 px-4 placeholder:text-secondary text-night rounded-md outline-none border-none font-normal'
                  />
 
@@ -94,7 +98,7 @@ const Location = () => {
                    name='email'
                    value={reservationData.email}
                    onChange={handleChange}
-                   placeholder="Votre Email"
+                   placeholder={t('form_email_placeholder')}
                    className='focus:ring-2  bg-tertiary py-2 px-4 placeholder:text-secondary text-night rounded-md outline-none border-none font-normal'
                  />
 
@@ -103,7 +107,7 @@ const Location = () => {
                    name='téléphone'
                    value={reservationData.téléphone}
                    onChange={handleChange}
-                   placeholder=" Votre Numero de Téléphone"
+                   placeholder={t('form_phone_placeholder')}
                    className='focus:ring-2  bg-tertiary py-2 px-4 placeholder:text-secondary text-night rounded-md outline-none border-none font-normal'
                  />
                <span className=' grid xl:flex  gap-2 '>
@@ -114,7 +118,7 @@ const Location = () => {
                    min={0}
                    value={reservationData.adultes_n}
                    onChange={handleChange}
-                   placeholder=" Nombre d'adultes"
+                   placeholder={t('form_nbre_adultes_placeholder')}
                    className='xl:flex-1 w-full focus:ring-2  bg-tertiary py-2 px-4 placeholder:text-secondary text-night rounded-md outline-none border-none font-normal'
                  />
 
@@ -125,33 +129,33 @@ const Location = () => {
                    min={0}
                    value={reservationData.enfants_n}
                    onChange={handleChange}
-                   placeholder=" Nb enfants"
+                   placeholder={t('form_nbre_enfants_placeholder')}
                    className='xl:flex-1 w-full  focus:ring-2  bg-tertiary py-2 px-4 placeholder:text-secondary text-night rounded-md outline-none border-none font-normal text-sm xl:text-base '
                  />
 
                </span>
                <span className='grid xl:flex gap-2'>
                  <label className='flex-1 flex flex-col'>
-                 <span className=' xl:font-medium '>Date</span>
+                 <span className=' xl:font-medium '>{t('date')}</span>
                  <input
                    type='date'
                    name='date'
                    value={reservationData.date}
                    onChange={handleChange}
-                   placeholder="Date"
+                   placeholder={t('date')}
                    className='focus:ring-2  flex-1 bg-tertiary py-2 px-4 placeholder:text-secondary text-night rounded-md outline-none border-none font-normal'
                  />
                  </label>
 
                  <label className='flex-1 flex flex-col'>
-                 <span className='xl:font-medium '>Heure</span>
+                 <span className='xl:font-medium '>{t('hour')}</span>
                  <input
                    type='time'
                    name='time'
 
                    value={reservationData.enfants_n}
                    onChange={handleChange}
-                   placeholder=" Nombre d'enfants"
+                   placeholder={t('hour')}
                    className='focus:ring-2 flex-1 bg-tertiary py-2 px-4 placeholder:text-secondarytext-night rounded-md outline-none border-none font-normal'
                  />
                  </label>
@@ -159,12 +163,11 @@ const Location = () => {
                </span>
 
                  <textarea
-
                    rows={7}
                    name='message'
                    value={reservationData.message}
                    onChange={handleChange}
-                   placeholder='Votre message ?'
+                   placeholder={t('message')}
                    className='focus:ring-2  bg-tertiary py-2 px-4 placeholder:text-secondary text-night rounded-md outline-none border-none font-normal'
                  />
 
@@ -172,25 +175,22 @@ const Location = () => {
                  type='submit'
                  className=' bg-customBlue py-3 px-8 rounded-xl outline-none w-fit  sm:m-0 text-white font-bold shadow-md shadow-primary'
                >
-                 {loading ? "Sending..." : "Send"}
+                 {loading ?t('form_submit_loading') : t('form_submit_default') }
                </button>
            </form>
 
             </div>
-           {/* <p className=" p-5 px-10 border-2 border-customBlue mx-4"><strong className='text-night text-lg'>Adresse:</strong> {location.adresse}</p> */}
-           {/* { location.téléphone ?
-           <p className=" p-5 px-10 border-2 border-customBlue mx-4"><strong className='text-night text-lg'>Téléphone:</strong> {location.téléphone}</p>
-           :""} */}
+
            {location.prix ? 
-           <p className=" p-5 px-10 border-2 border-customBlue mx-4"><strong className='text-night text-lg'>Prix:</strong> {location.prix}</p> 
+           <p className=" p-5 px-10 border-2 border-customBlue mx-4"><strong className='text-night text-lg'>{t('prix')}:</strong> {location.prix}</p> 
            :""
            }
            {location.horaires ? 
-           <p className=" p-5 px-10 border-2 border-customBlue mx-4"><strong className='text-night text-lg'>Horaires:</strong> {location.horaires}</p>
+           <p className=" p-5 px-10 border-2 border-customBlue mx-4"><strong className='text-night text-lg'>{t('Horaires')}:</strong> {location.horaires}</p>
            :""}
            {location.informations_importants?
            location.informations_importants.notes? 
-            <p className='p-5 px-10 border-2 border-customBlue mx-4 '><strong className='text-night text-lg'>Notation  :</strong> {location.informations_importants.notes}</p>
+            <p className='p-5 px-10 border-2 border-customBlue mx-4 '><strong className='text-night text-lg'>{t('Notation')}  :</strong> {location.informations_importants.notes}</p>
            :"":""}
 
            {/* {location.siteweb ?
@@ -199,7 +199,7 @@ const Location = () => {
 
            </div>
            <div className='bg-Lion text-white text-lg max-md:text-base font-bold px-4 py-3 rounded mx-4'>
-           pour réserver remplir le formulaire ci-dessus <a href="#form" className='text-customBlue px-3 py-2 underline font-normal'>formulaire</a>
+           {t('alert_reservation')} <a href="#form" className='text-customBlue px-3 py-2 underline font-normal'> <FontAwesomeIcon icon={faArrowAltCircleUp} /></a>
            
            </div>
            
@@ -208,7 +208,7 @@ const Location = () => {
              {location.avis.length>0 ?
              <>
 
-           <h3 className="text-3xl font-bold m-4 mt-6 ">Avis</h3>
+           <h3 className="text-3xl font-bold m-4 mt-6 ">{t('avis')}</h3>
            <div className="flex  items-center m-4">
            <div className='bg-white w-1/5 max-md:w-6/12 max- h-3 rounded-xl mx-4 '>
                <div className='bg-customBlue w-1/2 h-3 rounded-xl transition-colors '

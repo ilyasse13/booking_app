@@ -1,11 +1,14 @@
 import React,{useState} from 'react'
 import { useParams } from 'react-router-dom'
-import { cafées_et_biscuitrie } from '../../assets/data'
+// import { cafées_et_biscuitrie } from '../../assets/data'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLink } from '@fortawesome/free-solid-svg-icons';
+import { faArrowAltCircleUp } from '@fortawesome/free-solid-svg-icons';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { useTranslation } from 'react-i18next';
 
 const Café_et_biscuitrie = () => {
+  const {t}=useTranslation();
+  const cafées_et_biscuitrie= t('cafées_et_biscuitrie',{returnObjects:true});
   const {uri}= useParams()
   const cafe=cafées_et_biscuitrie.find((cof)=>cof.uri==uri)
   const[activeImage,setActiveImage]=useState(cafe.images[0]);
@@ -55,7 +58,7 @@ const Café_et_biscuitrie = () => {
         <div className="flex-1 px-4 max-sm:px-6 max-lg:px-8">
             <h2 className="headline first-letter:text-customBlue  ">{cafe.nom}</h2>
             <hr className='w-1/2' />
-            <p className="italic mb-4 text-lg font-semibold py-10 w-11/12 font-sansBody">{cafe.slogan}</p>
+            {/* <p className="italic mb-4 text-lg font-semibold py-10 w-11/12 font-sansBody">{cafe.slogan}</p> */}
             <div className='flex flex-wrap w-full my-4 max-md:my-2'> {cafe.images.map((image)=>(
         <img 
         className={ image==activeImage? 'border-4 border-customBlue w-1/5 cursor-pointer hover:scale-90 transition-transform':'cursor-pointer border-2 w-1/5  border-white  hover:scale-90 transition-transform'}
@@ -74,7 +77,7 @@ const Café_et_biscuitrie = () => {
 
                 <div className="mb-10">
                 <div className=' padding w-full text-night font-sansBody font-semibold'>
-                 <strong className='text-lg font-bold  xl:headline'>Description :</strong> <p className=" px-6  text-left  "> {cafe.description}</p>
+                 <strong className='text-lg font-bold  xl:headline'>{t('description_title')}:</strong> <p className=" px-6  text-left  "> {cafe.description}</p>
 
                 </div>
                  <div className={` my-12 mx-auto md:w-8/12 xl:w-6/12 overflow-hidden xl:padding`}>
@@ -84,14 +87,14 @@ const Café_et_biscuitrie = () => {
                     onSubmit={handleSubmit}
                     className=' w-full xl:flex-1  flex flex-col gap-2'
                   >
-                    <h3 className='text-lg font-bold  xl:headline text-left  '>Formulaire de Réservation : </h3>
+                    <h3 className='text-lg font-bold  xl:headline text-left  '>{t('form_title')} </h3>
 
                       <input
                         type='text'
                         name='name'
                         value={reservationData.name}
                         onChange={handleChange}
-                        placeholder="Nom complet "
+                        placeholder={t('form_name_placeholder')}
                         className='focus:ring-2  bg-tertiary py-2 px-4 placeholder:text-secondary text-night rounded-md outline-none border-none font-normal'
                       />
 
@@ -100,7 +103,7 @@ const Café_et_biscuitrie = () => {
                         name='email'
                         value={reservationData.email}
                         onChange={handleChange}
-                        placeholder="Votre Email"
+                        placeholder={t('form_email_placeholder')}
                         className='focus:ring-2  bg-tertiary py-2 px-4 placeholder:text-secondary text-night rounded-md outline-none border-none font-normal'
                       />
 
@@ -109,7 +112,7 @@ const Café_et_biscuitrie = () => {
                         name='téléphone'
                         value={reservationData.téléphone}
                         onChange={handleChange}
-                        placeholder=" Votre Numero de Téléphone"
+                        placeholder={t('form_phone_placeholder')}
                         className='focus:ring-2  bg-tertiary py-2 px-4 placeholder:text-secondary text-night rounded-md outline-none border-none font-normal'
                       />
                     <span className=' grid xl:flex  gap-2 '>
@@ -120,7 +123,7 @@ const Café_et_biscuitrie = () => {
                         min={0}
                         value={reservationData.adultes_n}
                         onChange={handleChange}
-                        placeholder=" Nombre d'adultes"
+                        placeholder={t('form_nbre_adultes_placeholder')}
                         className='xl:flex-1 w-full focus:ring-2  bg-tertiary py-2 px-4 placeholder:text-secondary text-night rounded-md outline-none border-none font-normal'
                       />
 
@@ -131,33 +134,33 @@ const Café_et_biscuitrie = () => {
                         min={0}
                         value={reservationData.enfants_n}
                         onChange={handleChange}
-                        placeholder=" Nb enfants"
+                        placeholder={t('form_nbre_enfants_placeholder')}
                         className='xl:flex-1 w-full  focus:ring-2  bg-tertiary py-2 px-4 placeholder:text-secondary text-night rounded-md outline-none border-none font-normal text-sm xl:text-base '
                       />
 
                     </span>
                     <span className='grid xl:flex gap-2'>
                       <label className='flex-1 flex flex-col'>
-                      <span className=' xl:font-medium '>Date</span>
+                      <span className=' xl:font-medium '>{t('date')}</span>
                       <input
                         type='date'
                         name='date'
                         value={reservationData.date}
                         onChange={handleChange}
-                        placeholder="Date"
+                        placeholder={t('date')}
                         className='focus:ring-2  flex-1 bg-tertiary py-2 px-4 placeholder:text-secondary text-night rounded-md outline-none border-none font-normal'
                       />
                       </label>
 
                       <label className='flex-1 flex flex-col'>
-                      <span className='xl:font-medium '>Heure</span>
+                      <span className='xl:font-medium '>{t('hour')}</span>
                       <input
                         type='time'
                         name='time'
 
                         value={reservationData.enfants_n}
                         onChange={handleChange}
-                        placeholder=" Nombre d'enfants"
+                        placeholder={t('hour')}
                         className='focus:ring-2 flex-1 bg-tertiary py-2 px-4 placeholder:text-secondarytext-night rounded-md outline-none border-none font-normal'
                       />
                       </label>
@@ -165,12 +168,11 @@ const Café_et_biscuitrie = () => {
                     </span>
 
                       <textarea
-
                         rows={7}
                         name='message'
                         value={reservationData.message}
                         onChange={handleChange}
-                        placeholder='Votre message ?'
+                        placeholder={t('message')}
                         className='focus:ring-2  bg-tertiary py-2 px-4 placeholder:text-secondary text-night rounded-md outline-none border-none font-normal'
                       />
 
@@ -178,25 +180,22 @@ const Café_et_biscuitrie = () => {
                       type='submit'
                       className=' bg-customBlue py-3 px-8 rounded-xl outline-none w-fit  sm:m-0 text-white font-bold shadow-md shadow-primary'
                     >
-                      {loading ? "Sending..." : "Send"}
+                      {loading ?t('form_submit_loading') : t('form_submit_default') }
                     </button>
                 </form>
 
                  </div>
-                {/* <p className=" p-5 px-10 border-2 border-customBlue mx-4"><strong className='text-night text-lg'>Adresse:</strong> {cafe.adresse}</p> */}
-                {/* { cafe.téléphone ?
-                <p className=" p-5 px-10 border-2 border-customBlue mx-4"><strong className='text-night text-lg'>Téléphone:</strong> {cafe.téléphone}</p>
-                :""} */}
+
                 {cafe.prix ? 
-                <p className=" p-5 px-10 border-2 border-customBlue mx-4"><strong className='text-night text-lg'>Prix:</strong> {cafe.prix}</p> 
+                <p className=" p-5 px-10 border-2 border-customBlue mx-4"><strong className='text-night text-lg'>{t('prix')}:</strong> {cafe.prix}</p> 
                 :""
                 }
                 {cafe.horaires ? 
-                <p className=" p-5 px-10 border-2 border-customBlue mx-4"><strong className='text-night text-lg'>Horaires:</strong> {cafe.horaires}</p>
+                <p className=" p-5 px-10 border-2 border-customBlue mx-4"><strong className='text-night text-lg'>{t('Horaires')}:</strong> {cafe.horaires}</p>
                 :""}
                 {cafe.informations_importants?
                 cafe.informations_importants.notes? 
-                 <p className='p-5 px-10 border-2 border-customBlue mx-4 '><strong className='text-night text-lg'>Notation  :</strong> {cafe.informations_importants.notes}</p>
+                 <p className='p-5 px-10 border-2 border-customBlue mx-4 '><strong className='text-night text-lg'>{t('Notation')}  :</strong> {cafe.informations_importants.notes}</p>
                 :"":""}
 
                 {/* {cafe.siteweb ?
@@ -205,7 +204,7 @@ const Café_et_biscuitrie = () => {
 
                 </div>
                 <div className='bg-Lion text-white text-lg max-md:text-base font-bold px-4 py-3 rounded mx-4'>
-                pour réserver remplir le formulaire ci-dessus <a href="#form" className='text-customBlue px-3 py-2 underline font-normal'>formulaire</a>
+                {t('alert_reservation')} <a href="#form" className='text-customBlue px-3 py-2 underline font-normal'> <FontAwesomeIcon icon={faArrowAltCircleUp} /></a>
                 
                 </div>
                 
@@ -214,7 +213,7 @@ const Café_et_biscuitrie = () => {
                   {cafe.avis.length>0 ?
                   <>
 
-                <h3 className="text-3xl font-bold m-4 mt-6 ">Avis</h3>
+                <h3 className="text-3xl font-bold m-4 mt-6 ">{t('avis')}</h3>
                 <div className="flex  items-center m-4">
                 <div className='bg-white w-1/5 max-md:w-6/12 max- h-3 rounded-xl mx-4 '>
                     <div className='bg-customBlue w-1/2 h-3 rounded-xl transition-colors '
@@ -256,10 +255,10 @@ const Café_et_biscuitrie = () => {
   );
 };
 
-const averageRating = (avis) => {
-  if (!avis || avis.length === 0) return 'N/A';
-  const average = avis.reduce((total, avis) => total + avis.valeur, 0) / avis.length;
-  return average.toFixed(1); // Return average rating with one decimal place
-};
+// const averageRating = (avis) => {
+//   if (!avis || avis.length === 0) return 'N/A';
+//   const average = avis.reduce((total, avis) => total + avis.valeur, 0) / avis.length;
+//   return average.toFixed(1); // Return average rating with one decimal place
+// };
 
 export default Café_et_biscuitrie

@@ -1,14 +1,21 @@
 import React,{useState,useEffect} from 'react'
-import { CategoryParams } from '../../assets/data';
+// import { CategoryParams } from '../../assets/data';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFilter } from '@fortawesome/free-solid-svg-icons';
 import { faArrowLeftRotate } from '@fortawesome/free-solid-svg-icons';
+import { useTranslation } from 'react-i18next';
+
+
+
+
 
 const Cathegory = ({cat}) => {
+   const {t}= useTranslation();
+   const CategoryParams=t('CategoryParams' , { returnObjects: true });
 
     const[categoryfilters,setCategoryFilters]=useState([])
     const[filteredData,setFilteredData]=useState([]);
-    const [Loading,setLoading]=useState(true);
+    // const [Loading,setLoading]=useState(true);
 
     const categoryData = CategoryParams.find((category) => category.name === cat);
   useEffect(()=>{
@@ -47,8 +54,7 @@ const Cathegory = ({cat}) => {
       
       <p className="text-lg">{categoryData.description}</p>
     </div>
-  </section>
-   
+  </section>   
 
       {
       cat=='Restaurants'?
@@ -62,26 +68,26 @@ const Cathegory = ({cat}) => {
     
       <button className={categoryfilters.includes('pizzeria')?'font-bold border-2 rounded-full border-white p-4 bg-white text-Lion transition-opacity':'border-2 rounded-full border-white p-4 text-white transition-opacity hover:bg-white hover:text-Lion'} 
       onClick={()=>toggleFilter("pizzeria")}
-       >Pizzeria</button>
+       >{t('category_filter1')}</button>
 
       <button className={categoryfilters.includes('tacos')?'font-bold border-2 rounded-full border-white p-4 bg-white text-Lion transition-opacity':'border-2 rounded-full border-white p-4 text-white transition-opacity hover:bg-white hover:text-Lion'} 
       onClick={()=>toggleFilter('tacos')}
-      >Tacos</button>
+      >{t('category_filter2')}</button>
       <button className={categoryfilters.includes('fruit_de_mer')?'font-bold border-2 rounded-full border-white p-4 bg-white text-Lion transition-opacity':'border-2 rounded-full border-white p-4 text-white transition-opacity hover:bg-white hover:text-Lion'} 
       onClick={()=>toggleFilter('fruit_de_mer')}
-      >Fruit de mer</button>
+      >{t('category_filter3')}</button>
       <button className={categoryfilters.includes('italien')?'font-bold border-2 rounded-full border-white p-4 bg-white text-Lion transition-opacity':'border-2 rounded-full border-white p-4 text-white transition-opacity hover:bg-white hover:text-Lion'} 
       onClick={()=>
          toggleFilter("italien")
-      }>Italien Cuisine</button>
+      }>{t('category_filter4')}</button>
       <button className={categoryfilters.includes('traditionnelle')?'font-bold border-2 rounded-full border-white p-4 bg-white text-Lion transition-opacity':'border-2 rounded-full border-white p-4 text-white transition-opacity hover:bg-white hover:text-Lion'} 
       onClick={()=>
         toggleFilter("traditionnelle")
-      }>traditionnelle</button>
+      }>{t('category_filter5')}</button>
       <button className={categoryfilters.includes('tropical')?'font-bold border-2 rounded-full border-white p-4 bg-white text-Lion transition-opacity':'border-2 rounded-full border-white p-4 text-white transition-opacity hover:bg-white hover:text-Lion'} 
       onClick={()=>
         toggleFilter("tropical")
-      }>tropical</button>
+      }>{t('category_filter6')}</button>
       </div>
       :(cat=='Nights club')?
         ""
@@ -96,11 +102,11 @@ const Cathegory = ({cat}) => {
           <button className={categoryfilters.includes('Donuts')?'font-bold border-2 rounded-full border-white p-4 bg-white text-Lion transition-opacity':'border-2 rounded-full border-white p-4 text-white transition-opacity hover:bg-white hover:text-Lion'} 
       onClick={()=>
         toggleFilter("Donuts")
-      }>Donuts</button>
+      }>{t('category_filter7')}</button>
       <button className={categoryfilters.includes('Biscuitrie')?'font-bold border-2 rounded-full border-white p-4 bg-white text-Lion transition-opacity':'border-2 rounded-full border-white p-4 text-white transition-opacity hover:bg-white hover:text-Lion'} 
       onClick={()=>
         toggleFilter("Biscuitrie")
-      }>Biscuitrie</button>
+      }>{t('category_filter8')}</button>
        </div>
        :(cat=='Coiffeurs')?
         ""
@@ -115,7 +121,7 @@ const Cathegory = ({cat}) => {
           <button className={categoryfilters.includes('nettoyage et restauration')?'font-bold border-2 rounded-full border-white p-4 bg-white text-Lion transition-opacity':'border-2 rounded-full border-white p-4 text-white transition-opacity hover:bg-white hover:text-Lion'} 
       onClick={()=>
         toggleFilter("nettoyage et restauration")
-      }>Nettoyage et Restauration</button>
+      }>{t('category_filter9')}</button>
 
        </div>
        :(cat=='Opticiens')?
@@ -131,7 +137,7 @@ const Cathegory = ({cat}) => {
           <button className={categoryfilters.includes('cinema')?'font-bold border-2 rounded-full border-white p-4 bg-white text-Lion transition-opacity':'border-2 rounded-full border-white p-4 text-white transition-opacity hover:bg-white hover:text-Lion'} 
       onClick={()=>
         toggleFilter("cinema")
-      }>Cinéma</button>
+      }>{t('category_filter10')}</button>
 
        </div>
        :(cat=='Locations')?
@@ -150,9 +156,9 @@ const Cathegory = ({cat}) => {
       <img className="w-full h-48 object-cover" src={item.images[0]} alt="Restaurant Image"/>
       <div className="px-6 py-4">
         <div className="font-bold text-xl mb-2">{item.nom}</div>
-        <p className="text-gray-700 text-base">
+        {/* <p className="text-gray-700 text-base">
            {item.téléphone ?`Téléphone : ${item.téléphone}`:item.adresse ?`Adresse: ${item.adresse}` :""}
-        </p>
+        </p> */}
         <div className="mt-4 flex items-center">
         <span className='text-lg font-semibold'>{averageRating(i)}</span>
          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6 text-yellow-500 ">

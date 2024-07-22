@@ -1,16 +1,40 @@
 import React,{useState,useEffect}from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons';
-import {faPhone} from '@fortawesome/free-solid-svg-icons';
-import { nights_club,sneakers,activités,restaurants,locations,coiffeurs,cafées_et_biscuitrie,opticiens } from '../../assets/data';
+// import { nights_club,sneakers,activités,restaurants,locations,coiffeurs,cafées_et_biscuitrie,opticiens } from '../../assets/data';
 import { calculateAverageAvis } from '../../assets/data';
+import { useTranslation } from 'react-i18next';
+
 
 const Hero = () => {
     const [message,setMessage]=useState(false);
     const [searchQuery, setSearchQuery] = useState('');
     const [isPopupVisible, setIsPopupVisible] = useState(false);
-    const [data,setData] = useState([...nights_club,...sneakers,...activités,...restaurants,...locations,...coiffeurs,...cafées_et_biscuitrie,...opticiens]);
     const [filteredData,setFilteredData]=useState([]);
+    const {t}= useTranslation();
+
+
+    const nights_club = t('nights_club', { returnObjects: true });
+    const sneakers = t('sneakers', { returnObjects: true });
+    const activités = t('activités', { returnObjects: true });
+    const restaurants = t('restaurants', { returnObjects: true });
+    const locations = t('locations', { returnObjects: true });
+    const coiffeurs = t('nights_club', { returnObjects: true });
+    const cafées_et_biscuitrie = t('cafées_et_biscuitrie', { returnObjects: true });
+    const opticiens = t('opticiens', { returnObjects: true });
+    // const data=[...nights_club,...sneakers,...activités,...restaurants,...locations,...coiffeurs,...cafées_et_biscuitrie,...opticiens]
+
+
+    const data = [
+      ...(Array.isArray(nights_club) ? nights_club : []),
+      ...(Array.isArray(sneakers) ? sneakers : []),
+      ...(Array.isArray(activités) ? activités : []),
+      ...(Array.isArray(restaurants) ? restaurants : []),
+      ...(Array.isArray(locations) ? locations : []),
+      ...(Array.isArray(coiffeurs) ? coiffeurs : []),
+      ...(Array.isArray(cafées_et_biscuitrie) ? cafées_et_biscuitrie : []),
+      ...(Array.isArray(opticiens) ? opticiens : []),
+    ];
     // Filter data based on the search query
     useEffect(()=>{
 
@@ -18,12 +42,14 @@ const Hero = () => {
         item.nom.toLowerCase().includes(searchQuery.toLowerCase())  
     );
     setFilteredData(result)        
-    },[searchQuery,data])
+    },[searchQuery])
 
   
     const handleSearchClick = () => {
       searchQuery.trim()!="" 
+
       ?setIsPopupVisible(true):setMessage(true);
+
       
       
     };
@@ -35,19 +61,19 @@ const Hero = () => {
     const imagesWithContent=[
         {
             img:"Marseille1.jpg",
-            content:" Là où le soleil méditerranéen embrasse l'âme vibrante de la France."
+            content:t('image1_phrase'),
         },
         {
             img:"Marseille2.jpg",
-            content:" Un mélange captivant de charme ancien et d'allure moderne."
+            content:t('image2_phrase'),
         },
         {
             img:"Marseille3.jpg",
-            content:"Embarquez pour un voyage à travers le temps, des ruines romaines à l'art contemporain."
+            content:t('image3_phrase'),
         },
         {
             img:"Marseille4.jpeg",
-            content:" Laissez le rythme des vagues vous guider à travers une ville aux possibilités infinies.."
+            content:t('image4_phrase'),
         }
     ]
 
@@ -75,7 +101,7 @@ const Hero = () => {
                     <input  
                       autoFocus               
                       type="text"
-                      placeholder="Chercher Destinations"
+                      placeholder={t('search_input')}
                       // className="border border-Lion p-2 mb-4  rounded text-black"
                      className=" outline-none p-2 pt-2  rounded-full text-black  "
                       value={searchQuery}
@@ -91,7 +117,7 @@ const Hero = () => {
                 </div> 
                 {message &&
                       <p className='text-night bg-white my-2 w-52 mx-auto text-md font-sansBody capitalize cursor-pointer'
-                      onClick={()=>setMessage(false)}> entrer des mot clés avant de lancer la recherche !</p>
+                      onClick={()=>setMessage(false)}> {t('search_message')}</p>
                 }   
 
                     {isPopupVisible && (
@@ -100,11 +126,11 @@ const Hero = () => {
                         <div className=" bg-customBlue p-6  rounded-lg shadow-lg  text-white w-3/4  mx-20 max-sm:mx-0 h-3/4 overflow-y-scroll relative max-sm:w-full ">
                           <button
                             onClick={closePopup}
-                            className="absolute  top-0 right-0 mt-2 mr-2 text-black  text-3xl border-2 border-black px-2 "
+                            className="fixed  top-0 right-0 mt-2 mr-2 text-white rounded-md text-3xl border-2 border-white px-2 "
                           >
                             &times;
                           </button>
-                          <h2 className="text-2xl my4 pt-4 font-bold">Resultat du Recherche</h2>
+                          <h2 className="text-2xl my4 pt-4 font-bold">{t('resultat_de_recherche')}</h2>
                           <hr className='bg-Lion w-56 text-center mx-auto' />
                           <br />
                           <div className="flex flex-wrap  relative gap-10 justify-between max-sm:grid max-sm:justify-center  max-sm:justify-items-center max-sm:items-center ">
@@ -122,14 +148,14 @@ const Hero = () => {
                                     <p className='flex font-semibold pr-8'><img src="star.png" className='h-6 w-6' /> {reviewsAverage }</p>                                        
                                     </div>
 
-                                 {item.téléphone ?<p className='font-semibold text-left font-sansBody '><FontAwesomeIcon icon={faPhone}/>: {item.téléphone}</p>:"" }
+                                 {/* {item.téléphone ?<p className='font-semibold text-left font-sansBody '><FontAwesomeIcon icon={faPhone}/>: {item.téléphone}</p>:"" } */}
                                 </div>
-                                  <a href={item.path} className='bg-black text-white px-2 py-3 rounded-md cursor-pointer m-auto'>Visiter</a>
+                                  <a href={item.path} className='bg-black text-white px-2 py-3 rounded-md cursor-pointer m-auto'>{t('popup_adresse_visit_btn')}</a>
                                   <hr />
                                 </div>
                               )})
                             ) : (
-                              <p className='mx-auto mt-10 text-white text-lg'></p>
+                              <p className='mx-auto mt-10 text-white text-lg'> {t('no_result')} </p>
                             )}                            
                           </div>
                            
