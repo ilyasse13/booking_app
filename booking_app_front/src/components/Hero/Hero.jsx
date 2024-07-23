@@ -95,7 +95,7 @@ const Hero = () => {
             >
               <div className="rounded-lg border-solid border-white border-2 p-0 max-sm:border-none bg-gradient-to-b from-Lion to-transparent  max-sm:rounded-none max-sm:">
                 <h1 className=" text-3xl font-extrabold sm:text-5xl  py-10 text-white w-fit mx-auto  first-letter:text-customBlue  px-0">Marseille</h1>
-                <p className="font-extrabold max-sm:block text-xl w-8/12 mx-auto  rounded-2xl text-white pb-12  ">{imagesWithContent[currentIndex].content}</p>
+                <p className="font-semibold xl:font-extrabold max-sm:block text-lg xl:text-xl w-8/12 mx-auto  rounded-2xl text-white pb-12  ">{imagesWithContent[currentIndex].content}</p>
               <div className="container mx-auto p-4">
                 <div className='flex justify-center bg-white rounded-full w-fit mx-auto  border-2 border-night '>
                     <input  

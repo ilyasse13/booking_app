@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowAltCircleUp } from '@fortawesome/free-solid-svg-icons';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { useTranslation } from 'react-i18next';
+import axiosClient from '../../api/axios';
 
 const Opticien = () => {
   const {t} = useTranslation();
@@ -14,10 +15,18 @@ const Opticien = () => {
 
   const[activeImage,setActiveImage]=useState(optician.images[0]);
 
- const [reservationData, setReservationData] = useState({
-    name: "",
+  const [reservationData, setReservationData] = useState({
+    nom:"",
     email: "",
+    telephone:"",
+    date:"",
+    heure:"",
+    nbre_adultes:"",
+    nbre_enfants:"",
     message: "",
+    lieu:Activity.nom,
+    category:"cinéma"
+
   });
 
   const [loading, setLoading] = useState(false);
@@ -36,7 +45,7 @@ const Opticien = () => {
     e.preventDefault();
     setLoading(true);
     try{ 
-      const response =  axios.post('https://localhost:8000/api/reservations', reservationData);
+      const response =  axiosClient.post('reservations', reservationData);
       console.log('Reservation successful:', response.data);
   } catch (error) {
       console.error('There was an error making the reservation:', error);
@@ -76,7 +85,7 @@ const Opticien = () => {
                 </div>
                  <div className={` my-12 mx-auto md:w-8/12 xl:w-6/12 overflow-hidden xl:padding`}>
 
-                <form
+                 <form
                     id='form'
                     onSubmit={handleSubmit}
                     className=' w-full xl:flex-1  flex flex-col gap-2'
@@ -103,8 +112,8 @@ const Opticien = () => {
 
                       <input
                         type='téléphone'
-                        name='téléphone'
-                        value={reservationData.téléphone}
+                        name='telephone'
+                        value={reservationData.telephone}
                         onChange={handleChange}
                         placeholder={t('form_phone_placeholder')}
                         className='focus:ring-2  bg-tertiary py-2 px-4 placeholder:text-secondary text-night rounded-md outline-none border-none font-normal'
@@ -113,9 +122,9 @@ const Opticien = () => {
 
                       <input
                         type='number'
-                        name='number'
+                        name='nbre_adultes'
                         min={0}
-                        value={reservationData.adultes_n}
+                        value={reservationData.nbre_adultes}
                         onChange={handleChange}
                         placeholder={t('form_nbre_adultes_placeholder')}
                         className='xl:flex-1 w-full focus:ring-2  bg-tertiary py-2 px-4 placeholder:text-secondary text-night rounded-md outline-none border-none font-normal'
@@ -124,9 +133,9 @@ const Opticien = () => {
 
                       <input
                         type='number'
-                        name='number'
+                        name='nbre_enfants'
                         min={0}
-                        value={reservationData.enfants_n}
+                        value={reservationData.nbre_enfants}
                         onChange={handleChange}
                         placeholder={t('form_nbre_enfants_placeholder')}
                         className='xl:flex-1 w-full  focus:ring-2  bg-tertiary py-2 px-4 placeholder:text-secondary text-night rounded-md outline-none border-none font-normal text-sm xl:text-base '
@@ -150,9 +159,9 @@ const Opticien = () => {
                       <span className='xl:font-medium '>{t('hour')}</span>
                       <input
                         type='time'
-                        name='time'
+                        name='heure'
 
-                        value={reservationData.enfants_n}
+                        value={reservationData.heure}
                         onChange={handleChange}
                         placeholder={t('hour')}
                         className='focus:ring-2 flex-1 bg-tertiary py-2 px-4 placeholder:text-secondarytext-night rounded-md outline-none border-none font-normal'

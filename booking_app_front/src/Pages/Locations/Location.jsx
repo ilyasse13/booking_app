@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowAltCircleUp } from '@fortawesome/free-solid-svg-icons';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { useTranslation } from 'react-i18next';
+import axiosClient from '../../api/axios';
 
 const Location = () => {
 
@@ -15,9 +16,17 @@ const Location = () => {
     const[activeImage,setActiveImage]=useState(location.images[0]);
 
     const [reservationData, setReservationData] = useState({
-      name: "",
+      nom:"",
       email: "",
+      telephone:"",
+      date:"",
+      heure:"",
+      nbre_adultes:"",
+      nbre_enfants:"",
       message: "",
+      lieu:Activity.nom,
+      category:"cinéma"
+  
     });
   
     const [loading, setLoading] = useState(false);
@@ -36,7 +45,7 @@ const Location = () => {
       e.preventDefault();
       setLoading(true);
       try{ 
-        const response =  axios.post('https://localhost:8000/api/reservations', reservationData);
+        const response =  axiosClient.post('reservations', reservationData);
         console.log('Reservation successful:', response.data);
     } catch (error) {
         console.error('There was an error making the reservation:', error);
@@ -77,107 +86,107 @@ const Location = () => {
            </div>
             <div className={` my-12 mx-auto md:w-8/12 xl:w-6/12 overflow-hidden xl:padding`}>
 
-           <form
-               id='form'
-               onSubmit={handleSubmit}
-               className=' w-full xl:flex-1  flex flex-col gap-2'
-             >
-               <h3 className='text-lg font-bold  xl:headline text-left  '>{t('form_title')} </h3>
+            <form
+                    id='form'
+                    onSubmit={handleSubmit}
+                    className=' w-full xl:flex-1  flex flex-col gap-2'
+                  >
+                    <h3 className='text-lg font-bold  xl:headline text-left  '>{t('form_title')} </h3>
 
-                 <input
-                   type='text'
-                   name='name'
-                   value={reservationData.name}
-                   onChange={handleChange}
-                   placeholder={t('form_name_placeholder')}
-                   className='focus:ring-2  bg-tertiary py-2 px-4 placeholder:text-secondary text-night rounded-md outline-none border-none font-normal'
-                 />
+                      <input
+                        type='text'
+                        name='name'
+                        value={reservationData.name}
+                        onChange={handleChange}
+                        placeholder={t('form_name_placeholder')}
+                        className='focus:ring-2  bg-tertiary py-2 px-4 placeholder:text-secondary text-night rounded-md outline-none border-none font-normal'
+                      />
 
-                 <input
-                   type='email'
-                   name='email'
-                   value={reservationData.email}
-                   onChange={handleChange}
-                   placeholder={t('form_email_placeholder')}
-                   className='focus:ring-2  bg-tertiary py-2 px-4 placeholder:text-secondary text-night rounded-md outline-none border-none font-normal'
-                 />
+                      <input
+                        type='email'
+                        name='email'
+                        value={reservationData.email}
+                        onChange={handleChange}
+                        placeholder={t('form_email_placeholder')}
+                        className='focus:ring-2  bg-tertiary py-2 px-4 placeholder:text-secondary text-night rounded-md outline-none border-none font-normal'
+                      />
 
-                 <input
-                   type='téléphone'
-                   name='téléphone'
-                   value={reservationData.téléphone}
-                   onChange={handleChange}
-                   placeholder={t('form_phone_placeholder')}
-                   className='focus:ring-2  bg-tertiary py-2 px-4 placeholder:text-secondary text-night rounded-md outline-none border-none font-normal'
-                 />
-               <span className=' grid xl:flex  gap-2 '>
+                      <input
+                        type='téléphone'
+                        name='telephone'
+                        value={reservationData.telephone}
+                        onChange={handleChange}
+                        placeholder={t('form_phone_placeholder')}
+                        className='focus:ring-2  bg-tertiary py-2 px-4 placeholder:text-secondary text-night rounded-md outline-none border-none font-normal'
+                      />
+                    <span className=' grid xl:flex  gap-2 '>
 
-                 <input
-                   type='number'
-                   name='number'
-                   min={0}
-                   value={reservationData.adultes_n}
-                   onChange={handleChange}
-                   placeholder={t('form_nbre_adultes_placeholder')}
-                   className='xl:flex-1 w-full focus:ring-2  bg-tertiary py-2 px-4 placeholder:text-secondary text-night rounded-md outline-none border-none font-normal'
-                 />
+                      <input
+                        type='number'
+                        name='nbre_adultes'
+                        min={0}
+                        value={reservationData.nbre_adultes}
+                        onChange={handleChange}
+                        placeholder={t('form_nbre_adultes_placeholder')}
+                        className='xl:flex-1 w-full focus:ring-2  bg-tertiary py-2 px-4 placeholder:text-secondary text-night rounded-md outline-none border-none font-normal'
+                      />
 
 
-                 <input
-                   type='number'
-                   name='number'
-                   min={0}
-                   value={reservationData.enfants_n}
-                   onChange={handleChange}
-                   placeholder={t('form_nbre_enfants_placeholder')}
-                   className='xl:flex-1 w-full  focus:ring-2  bg-tertiary py-2 px-4 placeholder:text-secondary text-night rounded-md outline-none border-none font-normal text-sm xl:text-base '
-                 />
+                      <input
+                        type='number'
+                        name='nbre_enfants'
+                        min={0}
+                        value={reservationData.nbre_enfants}
+                        onChange={handleChange}
+                        placeholder={t('form_nbre_enfants_placeholder')}
+                        className='xl:flex-1 w-full  focus:ring-2  bg-tertiary py-2 px-4 placeholder:text-secondary text-night rounded-md outline-none border-none font-normal text-sm xl:text-base '
+                      />
 
-               </span>
-               <span className='grid xl:flex gap-2'>
-                 <label className='flex-1 flex flex-col'>
-                 <span className=' xl:font-medium '>{t('date')}</span>
-                 <input
-                   type='date'
-                   name='date'
-                   value={reservationData.date}
-                   onChange={handleChange}
-                   placeholder={t('date')}
-                   className='focus:ring-2  flex-1 bg-tertiary py-2 px-4 placeholder:text-secondary text-night rounded-md outline-none border-none font-normal'
-                 />
-                 </label>
+                    </span>
+                    <span className='grid xl:flex gap-2'>
+                      <label className='flex-1 flex flex-col'>
+                      <span className=' xl:font-medium '>{t('date')}</span>
+                      <input
+                        type='date'
+                        name='date'
+                        value={reservationData.date}
+                        onChange={handleChange}
+                        placeholder={t('date')}
+                        className='focus:ring-2  flex-1 bg-tertiary py-2 px-4 placeholder:text-secondary text-night rounded-md outline-none border-none font-normal'
+                      />
+                      </label>
 
-                 <label className='flex-1 flex flex-col'>
-                 <span className='xl:font-medium '>{t('hour')}</span>
-                 <input
-                   type='time'
-                   name='time'
+                      <label className='flex-1 flex flex-col'>
+                      <span className='xl:font-medium '>{t('hour')}</span>
+                      <input
+                        type='time'
+                        name='heure'
 
-                   value={reservationData.enfants_n}
-                   onChange={handleChange}
-                   placeholder={t('hour')}
-                   className='focus:ring-2 flex-1 bg-tertiary py-2 px-4 placeholder:text-secondarytext-night rounded-md outline-none border-none font-normal'
-                 />
-                 </label>
+                        value={reservationData.heure}
+                        onChange={handleChange}
+                        placeholder={t('hour')}
+                        className='focus:ring-2 flex-1 bg-tertiary py-2 px-4 placeholder:text-secondarytext-night rounded-md outline-none border-none font-normal'
+                      />
+                      </label>
 
-               </span>
+                    </span>
 
-                 <textarea
-                   rows={7}
-                   name='message'
-                   value={reservationData.message}
-                   onChange={handleChange}
-                   placeholder={t('message')}
-                   className='focus:ring-2  bg-tertiary py-2 px-4 placeholder:text-secondary text-night rounded-md outline-none border-none font-normal'
-                 />
+                      <textarea
+                        rows={7}
+                        name='message'
+                        value={reservationData.message}
+                        onChange={handleChange}
+                        placeholder={t('message')}
+                        className='focus:ring-2  bg-tertiary py-2 px-4 placeholder:text-secondary text-night rounded-md outline-none border-none font-normal'
+                      />
 
-               <button
-                 type='submit'
-                 className=' bg-customBlue py-3 px-8 rounded-xl outline-none w-fit  sm:m-0 text-white font-bold shadow-md shadow-primary'
-               >
-                 {loading ?t('form_submit_loading') : t('form_submit_default') }
-               </button>
-           </form>
+                    <button
+                      type='submit'
+                      className=' bg-customBlue py-3 px-8 rounded-xl outline-none w-fit  sm:m-0 text-white font-bold shadow-md shadow-primary'
+                    >
+                      {loading ?t('form_submit_loading') : t('form_submit_default') }
+                    </button>
+              </form>
 
             </div>
 
