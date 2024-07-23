@@ -5,7 +5,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowAltCircleUp } from '@fortawesome/free-solid-svg-icons';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { useTranslation } from 'react-i18next';
-// import axios from 'axios'
+
+
 
 const Restaurant = () => {
   const {t}=useTranslation();
@@ -46,8 +47,10 @@ const Restaurant = () => {
     try{ 
       const response =  axios.post('https://localhost:8000/api/reservations', reservationData);
       console.log('Reservation successful:', response.data);
+      setLoading(false)
   } catch (error) {
       console.error('There was an error making the reservation:', error);
+      setLoading(false)
   }}
 
     
@@ -65,8 +68,9 @@ const Restaurant = () => {
             <h2 className="headline first-letter:text-customBlue  ">{restaurant.nom}</h2>
             <hr className='w-1/2' />
             <p className="italic mb-4 text-lg font-semibold py-10 w-11/12 font-sansBody">{restaurant.slogan}</p>
-            <div className='flex flex-wrap w-full my-4 max-md:my-2'> {restaurant.images.map((image)=>(
+            <div className='flex flex-wrap w-full my-4 max-md:my-2'> {restaurant.images.map((image,i)=>(
         <img 
+        key={i}
         className={ image==activeImage? 'border-4 border-customBlue w-1/5 cursor-pointer hover:scale-90 transition-transform':'cursor-pointer border-2 w-1/5  border-white  hover:scale-90 transition-transform'}
          src={image} alt="" onClick={()=>setActiveImage(image)} />
       ))} 

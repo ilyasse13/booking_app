@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Mail\ReservationConfirmationMail;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Reservation;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
@@ -12,6 +13,22 @@ use Illuminate\Support\Str;
 
 class ReservationController extends Controller
 {
+    public function index()
+    {
+        // Get today's date
+    $today = Carbon::today();
+
+    // Delete all reservations with a date before today
+    Reservation::where('date', '<', $today)->delete(); 
+        $reservations = Reservation::orderBy('created_at', 'desc')->paginate(7);
+        return view('dashboard',['reservations'=>$reservations]);
+    }
+    public function show($id)
+    {
+        $reservation= Reservation::findOrFail($id);
+
+        return view('details',['reservation'=>$reservation]);
+    }
     public function store(Request $request)
 {
     $validator = Validator::make($request->all(), [
