@@ -5,9 +5,9 @@ import App from "./App";
 
 import Restaurant from "./Pages/Restaurant/Restaurant";
 import Coiffeur from "./Pages/Coiffeur/Coiffeur";
-import VTC from "./Pages/VTC/VTC";
+
 import Activity from "./Pages/Activity/Activity";
-import Evenement from "./Pages/Opticiens/Opticiens";
+
 import Home from "./Pages/Home";
 import Clubs from "./Pages/Clubs/Clubs";
 import Café_et_biscuitrie from "./Pages/Cafés et Biscuitrie/Café_et_biscuitrie";

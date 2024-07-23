@@ -32,7 +32,7 @@
                                     <td class="px-6 py-4 whitespace-nowrap">{{ $reservation->categorie }}</td>
                                     <td class="px-6 py-4 whitespace-nowrap">{{ $reservation->date }}</td>
                                     <td class="px-6 py-4 whitespace-nowrap">{{ $reservation->heure }}</td>
-                                    <td class="px-6 py-4 whitespace-nowrap">{{ $reservation->confirmed }}</td>
+                                    <td class="px-6 py-4 whitespace-nowrap {{$reservation->confirmed == "confirmée" ?' text-green-600' : "text-red-600"}}  ">{{ $reservation->confirmed }}</td>
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <a href="{{ route('reservations.show', $reservation->id) }}" class="text-blue-500 hover:underline">Details</a>
                                     </td>

@@ -28,10 +28,10 @@ const Café_et_biscuitrie = () => {
     date:"",
     heure:"",
     nbre_adultes:"",
-    nbre_enfants:"",
+    nbre_enfants:0,
     message: "",
-    lieu:Activity.nom,
-    category:"cinéma"
+    lieu:cafe.nom,
+    categorie:"cafe"
 
   });
 
@@ -47,14 +47,19 @@ const Café_et_biscuitrie = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
     try{ 
-      const response =  axiosClient.post('reservations', reservationData);
-      console.log('Reservation successful:', response.data);
+      const response = await axiosClient.post('/reservations', reservationData);
+     if (response.status===201){
+      alert(response.data.message);
+     }
+      
+      setLoading(false);
   } catch (error) {
       console.error('There was an error making the reservation:', error);
+      setLoading(false);
   }}
 
   if (!cafe) {
@@ -100,8 +105,8 @@ const Café_et_biscuitrie = () => {
 
                       <input
                         type='text'
-                        name='name'
-                        value={reservationData.name}
+                        name='nom'
+                        value={reservationData.nom}
                         onChange={handleChange}
                         placeholder={t('form_name_placeholder')}
                         className='focus:ring-2  bg-tertiary py-2 px-4 placeholder:text-secondary text-night rounded-md outline-none border-none font-normal'

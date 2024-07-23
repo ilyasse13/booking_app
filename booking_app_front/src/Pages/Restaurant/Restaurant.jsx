@@ -30,10 +30,10 @@ const Restaurant = () => {
     date:"",
     heure:"",
     nbre_adultes:"",
-    nbre_enfants:"",
+    nbre_enfants:0,
     message: "",
-    lieu:Activity.nom,
-    category:"cinéma"
+    lieu:restaurant.nom,
+    categorie:"restaurant"
 
   });
 
@@ -49,16 +49,19 @@ const Restaurant = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
     try{ 
-      const response =  axiosClient.post('reservations', reservationData);
-      console.log('Reservation successful:', response.data);
-      setLoading(false)
+      const response = await axiosClient.post('/reservations', reservationData);
+     if (response.status===201){
+      alert(response.data.message);
+     }
+      
+      setLoading(false);
   } catch (error) {
       console.error('There was an error making the reservation:', error);
-      setLoading(false)
+      setLoading(false);
   }}
 
     
